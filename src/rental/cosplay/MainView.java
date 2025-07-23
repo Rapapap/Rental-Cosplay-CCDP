@@ -18,11 +18,16 @@ import rental.cosplay.components.RoundedPanel;
 public class MainView extends javax.swing.JFrame {
 
     NavigationController navigationController;
+    AuthController authController;
+    UserModel user;
     
     public MainView() {
         initComponents();
         
         navigationController = new NavigationController();
+        authController = new AuthController();
+        
+        navigationController.goTo(this, new HomeView());
     }
 
     public JPanel getContentPanel() {
@@ -41,8 +46,6 @@ public class MainView extends javax.swing.JFrame {
         MainPanel = new javax.swing.JPanel();
         SideBarPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         KatalogButton = new RoundedPanel(8, Color.decode("#80AF81"));
         jLabel3 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -52,34 +55,27 @@ public class MainView extends javax.swing.JFrame {
         RentalButton = new RoundedPanel(8, Color.decode("#80AF81"));
         jLabel5 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        LogoutButton = new RoundedPanel(8, Color.decode("#80AF81"));
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
         BodyPanel = new javax.swing.JPanel();
         ContentPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1336, 720));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         MainPanel.setBackground(new java.awt.Color(255, 255, 255));
-        MainPanel.setPreferredSize(new java.awt.Dimension(1336, 740));
+        MainPanel.setPreferredSize(new java.awt.Dimension(1336, 720));
         MainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         SideBarPanel.setBackground(new java.awt.Color(0, 204, 204));
-        SideBarPanel.setPreferredSize(new java.awt.Dimension(240, 740));
+        SideBarPanel.setPreferredSize(new java.awt.Dimension(240, 720));
         SideBarPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rental/cosplay/img/LogoKecil.png"))); // NOI18N
         SideBarPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 24, -1, 92));
-
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rental/cosplay/img/Keluar.png"))); // NOI18N
-        SideBarPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 640, 60, 70));
-
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jButton1.setText("Keluar");
-        jButton1.setActionCommand("Katalog");
-        jButton1.setPreferredSize(new java.awt.Dimension(75, 75));
-        SideBarPanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 640, 210, 70));
 
         KatalogButton.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -185,7 +181,44 @@ public class MainView extends javax.swing.JFrame {
 
         SideBarPanel.add(RentalButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 200, 60));
 
-        MainPanel.add(SideBarPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 240, 720));
+        LogoutButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LogoutButtonMouseClicked(evt);
+            }
+        });
+        LogoutButton.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                LogoutButtonKeyPressed(evt);
+            }
+        });
+
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rental/cosplay/img/Keluar.png"))); // NOI18N
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("Logout");
+
+        javax.swing.GroupLayout LogoutButtonLayout = new javax.swing.GroupLayout(LogoutButton);
+        LogoutButton.setLayout(LogoutButtonLayout);
+        LogoutButtonLayout.setHorizontalGroup(
+            LogoutButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(LogoutButtonLayout.createSequentialGroup()
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE))
+        );
+        LogoutButtonLayout.setVerticalGroup(
+            LogoutButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(LogoutButtonLayout.createSequentialGroup()
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 1, Short.MAX_VALUE))
+            .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        SideBarPanel.add(LogoutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 640, 200, 60));
+
+        MainPanel.add(SideBarPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 240, -1));
 
         BodyPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -193,7 +226,7 @@ public class MainView extends javax.swing.JFrame {
         ContentPanel.setLayout(new java.awt.BorderLayout());
         BodyPanel.add(ContentPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 720));
 
-        MainPanel.add(BodyPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 1050, 720));
+        MainPanel.add(BodyPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, -1, 720));
 
         getContentPane().add(MainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -213,23 +246,20 @@ public class MainView extends javax.swing.JFrame {
     }//GEN-LAST:event_RentalButtonKeyPressed
 
     private void RentalButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RentalButtonMouseClicked
-        System.out.println("pindah");
-//        navigationController.goTo(this, new FormInformasiView());
-        getContentPanel().removeAll();
-       getContentPanel().add(new FormInformasiView(),BorderLayout.CENTER);
-       getContentPanel().repaint();
-       getContentPanel().revalidate();
+        navigationController.goTo(this, new FormInformasiView());
     }//GEN-LAST:event_RentalButtonMouseClicked
 
     private void HomeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeButtonMouseClicked
-        // TODO add your handling code here:
-        System.out.println("pindah");
-//        navigationController.goTo(this, new FormInformasiView());
-        getContentPanel().removeAll();
-       getContentPanel().add(new HomeView());
-       getContentPanel().repaint();
-       getContentPanel().revalidate(); 
+        navigationController.goTo(this, new HomeView());
     }//GEN-LAST:event_HomeButtonMouseClicked
+
+    private void LogoutButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogoutButtonMouseClicked
+        authController.logout(user, this);
+    }//GEN-LAST:event_LogoutButtonMouseClicked
+
+    private void LogoutButtonKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_LogoutButtonKeyPressed
+        
+    }//GEN-LAST:event_LogoutButtonKeyPressed
 
     /**
      * @param args the command line arguments
@@ -271,17 +301,18 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JPanel ContentPanel;
     private javax.swing.JPanel HomeButton;
     private javax.swing.JPanel KatalogButton;
+    private javax.swing.JPanel LogoutButton;
     private javax.swing.JPanel MainPanel;
     private javax.swing.JPanel RentalButton;
     private javax.swing.JPanel SideBarPanel;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     // End of variables declaration//GEN-END:variables
 }
