@@ -6,6 +6,7 @@
 package rental.cosplay;
 
 import formInformasi.FormInformasiView;
+import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JPanel;
 import rental.cosplay.components.RoundedPanel;
@@ -44,10 +45,13 @@ public class MainView extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         KatalogButton = new RoundedPanel(8, Color.decode("#80AF81"));
         jLabel3 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         HomeButton = new RoundedPanel(8, Color.decode("#80AF81"));
         jLabel1 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         RentalButton = new RoundedPanel(8, Color.decode("#80AF81"));
         jLabel5 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         BodyPanel = new javax.swing.JPanel();
         ContentPanel = new javax.swing.JPanel();
 
@@ -55,10 +59,12 @@ public class MainView extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(1336, 720));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        MainPanel.setBackground(new java.awt.Color(255, 255, 255));
+        MainPanel.setPreferredSize(new java.awt.Dimension(1336, 740));
         MainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        SideBarPanel.setBackground(new java.awt.Color(153, 255, 255));
-        SideBarPanel.setPreferredSize(new java.awt.Dimension(240, 720));
+        SideBarPanel.setBackground(new java.awt.Color(0, 204, 204));
+        SideBarPanel.setPreferredSize(new java.awt.Dimension(240, 740));
         SideBarPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -85,29 +91,32 @@ public class MainView extends javax.swing.JFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rental/cosplay/img/Katalog.png"))); // NOI18N
         jLabel3.setToolTipText("");
 
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("Katalog");
+
         javax.swing.GroupLayout KatalogButtonLayout = new javax.swing.GroupLayout(KatalogButton);
         KatalogButton.setLayout(KatalogButtonLayout);
         KatalogButtonLayout.setHorizontalGroup(
             KatalogButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 200, Short.MAX_VALUE)
-            .addGroup(KatalogButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, KatalogButtonLayout.createSequentialGroup()
-                    .addContainerGap(70, Short.MAX_VALUE)
-                    .addComponent(jLabel3)
-                    .addContainerGap(80, Short.MAX_VALUE)))
+            .addGroup(KatalogButtonLayout.createSequentialGroup()
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         KatalogButtonLayout.setVerticalGroup(
             KatalogButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 82, Short.MAX_VALUE)
-            .addGroup(KatalogButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, KatalogButtonLayout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel3)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        SideBarPanel.add(KatalogButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 200, 60));
+        SideBarPanel.add(KatalogButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 200, 60));
 
+        HomeButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                HomeButtonMouseClicked(evt);
+            }
+        });
         HomeButton.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 HomeButtonKeyPressed(evt);
@@ -116,22 +125,25 @@ public class MainView extends javax.swing.JFrame {
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rental/cosplay/img/Home.png"))); // NOI18N
-        jLabel1.setText("      HOME");
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("Home");
 
         javax.swing.GroupLayout HomeButtonLayout = new javax.swing.GroupLayout(HomeButton);
         HomeButton.setLayout(HomeButtonLayout);
         HomeButtonLayout.setHorizontalGroup(
             HomeButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HomeButtonLayout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 30, Short.MAX_VALUE))
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(21, Short.MAX_VALUE))
         );
         HomeButtonLayout.setVerticalGroup(
             HomeButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(HomeButtonLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         SideBarPanel.add(HomeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 200, 60));
@@ -150,45 +162,46 @@ public class MainView extends javax.swing.JFrame {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rental/cosplay/img/Rental.png"))); // NOI18N
 
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("Rental");
+
         javax.swing.GroupLayout RentalButtonLayout = new javax.swing.GroupLayout(RentalButton);
         RentalButton.setLayout(RentalButtonLayout);
         RentalButtonLayout.setHorizontalGroup(
             RentalButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 200, Short.MAX_VALUE)
-            .addGroup(RentalButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(RentalButtonLayout.createSequentialGroup()
-                    .addGap(0, 70, Short.MAX_VALUE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 70, Short.MAX_VALUE)))
+            .addGroup(RentalButtonLayout.createSequentialGroup()
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE))
         );
         RentalButtonLayout.setVerticalGroup(
             RentalButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 70, Short.MAX_VALUE)
-            .addGroup(RentalButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(RentalButtonLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(RentalButtonLayout.createSequentialGroup()
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 1, Short.MAX_VALUE))
+            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        SideBarPanel.add(RentalButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 200, 60));
+        SideBarPanel.add(RentalButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 200, 60));
 
-        MainPanel.add(SideBarPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, -1));
+        MainPanel.add(SideBarPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 240, 720));
 
         BodyPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        ContentPanel.setPreferredSize(new java.awt.Dimension(1070, 720));
         ContentPanel.setLayout(new java.awt.BorderLayout());
-        BodyPanel.add(ContentPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 910, 720));
+        BodyPanel.add(ContentPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 720));
 
-        MainPanel.add(BodyPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 790, 720));
+        MainPanel.add(BodyPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 1050, 720));
 
-        getContentPane().add(MainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1040, 720));
+        getContentPane().add(MainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void HomeButtonKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_HomeButtonKeyPressed
-        // TODO add your handling code here:
+        // TODO add your handling code here:\  
     }//GEN-LAST:event_HomeButtonKeyPressed
 
     private void KatalogButtonKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_KatalogButtonKeyPressed
@@ -203,10 +216,20 @@ public class MainView extends javax.swing.JFrame {
         System.out.println("pindah");
 //        navigationController.goTo(this, new FormInformasiView());
         getContentPanel().removeAll();
-       getContentPanel().add(new FormInformasiView());
+       getContentPanel().add(new FormInformasiView(),BorderLayout.CENTER);
        getContentPanel().repaint();
        getContentPanel().revalidate();
     }//GEN-LAST:event_RentalButtonMouseClicked
+
+    private void HomeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeButtonMouseClicked
+        // TODO add your handling code here:
+        System.out.println("pindah");
+//        navigationController.goTo(this, new FormInformasiView());
+        getContentPanel().removeAll();
+       getContentPanel().add(new HomeView());
+       getContentPanel().repaint();
+       getContentPanel().revalidate(); 
+    }//GEN-LAST:event_HomeButtonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -257,5 +280,8 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     // End of variables declaration//GEN-END:variables
 }
