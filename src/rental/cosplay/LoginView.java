@@ -8,6 +8,8 @@ package rental.cosplay;
 import java.awt.Color;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import javax.swing.JOptionPane;
+import rental.cosplay.components.CustomPasswordField;
 import rental.cosplay.components.CustomTextField;
 
 /**
@@ -16,11 +18,13 @@ import rental.cosplay.components.CustomTextField;
  */
 public class LoginView extends javax.swing.JFrame {
 
-    /**
-     * Creates new form LoginView
-     */
+    AuthController authController;
+    MainView mainView;
     public LoginView() {
         initComponents();
+        
+        authController = new AuthController();
+        mainView = new MainView();
     }
 
     /**
@@ -36,11 +40,11 @@ public class LoginView extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         Title = new javax.swing.JLabel();
-        button1 = new java.awt.Button();
+        btnLogin = new java.awt.Button();
         jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txtFieldUsername = new CustomTextField(15, 15, 15, Color.decode("#80AF81"), "Username", 40);
-        txtFieldUsername1 = new CustomTextField(15, 15, 15, Color.decode("#80AF81"), "Username", 40);
+        txtFieldPassword = new CustomPasswordField(15, 15, 15, Color.decode("#80AF81"), "Password", 40);
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -63,15 +67,20 @@ public class LoginView extends javax.swing.JFrame {
         Title.setToolTipText("");
         jPanel2.add(Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, -1, -1));
 
-        button1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        button1.setForeground(new java.awt.Color(255, 102, 255));
-        button1.setLabel("Login");
-        button1.addActionListener(new java.awt.event.ActionListener() {
+        btnLogin.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnLogin.setForeground(new java.awt.Color(255, 102, 255));
+        btnLogin.setLabel("Login");
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button1ActionPerformed(evt);
+                btnLoginActionPerformed(evt);
             }
         });
-        jPanel2.add(button1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 210, 50));
+        btnLogin.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnLoginKeyPressed(evt);
+            }
+        });
+        jPanel2.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 210, 50));
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rental/cosplay/img/lock_icon.png"))); // NOI18N
@@ -89,16 +98,10 @@ public class LoginView extends javax.swing.JFrame {
                 txtFieldUsernameActionPerformed(evt);
             }
         });
-        jPanel2.add(txtFieldUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 300, 40));
+        jPanel2.add(txtFieldUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 300, 40));
 
-        txtFieldUsername1.setMargin(new java.awt.Insets(4, 40, 4, 4));
-        txtFieldUsername1.setPreferredSize(new java.awt.Dimension(250, 29));
-        txtFieldUsername1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtFieldUsername1ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(txtFieldUsername1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 300, 40));
+        txtFieldPassword.setMargin(new java.awt.Insets(4, 40, 4, 4));
+        jPanel2.add(txtFieldPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 300, 40));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rental/cosplay/img/Login.jpg"))); // NOI18N
@@ -138,17 +141,34 @@ public class LoginView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        String username = txtFieldUsername.getText().trim();
+        String password = new String(txtFieldPassword.getPassword()).trim();
+
+        if (username.isEmpty() || password.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Username dan Password tidak boleh kosong", "Kesalahan Input", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        UserModel user = new UserModel(username, password);
+
+        UserModel authenticatedUser = authController.authenticate(user);
+
+        if (authenticatedUser != null) {
+            mainView.setVisible(true);
+            this.dispose();  // Tutup jendela login
+        } else {
+            JOptionPane.showMessageDialog(this, "Login gagal. Username atau Password salah.", "Login Gagal", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnLoginActionPerformed
+
     private void txtFieldUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFieldUsernameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtFieldUsernameActionPerformed
 
-    private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_button1ActionPerformed
-
-    private void txtFieldUsername1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFieldUsername1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtFieldUsername1ActionPerformed
+    private void btnLoginKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnLoginKeyPressed
+        
+    }//GEN-LAST:event_btnLoginKeyPressed
 
     /**
      * @param args the command line arguments
@@ -187,7 +207,7 @@ public class LoginView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Title;
-    private java.awt.Button button1;
+    private java.awt.Button btnLogin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
@@ -195,7 +215,7 @@ public class LoginView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPasswordField txtFieldPassword;
     private javax.swing.JTextField txtFieldUsername;
-    private javax.swing.JTextField txtFieldUsername1;
     // End of variables declaration//GEN-END:variables
 }

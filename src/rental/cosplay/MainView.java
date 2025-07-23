@@ -5,19 +5,29 @@
  */
 package rental.cosplay;
 
+import formInformasi.FormInformasiView;
+import java.awt.Color;
+import javax.swing.JPanel;
+import rental.cosplay.components.RoundedPanel;
+
 /**
  *
  * @author ASUS
  */
 public class MainView extends javax.swing.JFrame {
 
-    /**
-     * Creates new form MainView
-     */
+    NavigationController navigationController;
+    
     public MainView() {
         initComponents();
+        
+        navigationController = new NavigationController();
     }
 
+    public JPanel getContentPanel() {
+        return ContentPanel;
+    }
+  
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,92 +37,176 @@ public class MainView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        MainPanel = new javax.swing.JPanel();
+        SideBarPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        KatalogButton = new RoundedPanel(8, Color.decode("#80AF81"));
+        jLabel3 = new javax.swing.JLabel();
+        HomeButton = new RoundedPanel(8, Color.decode("#80AF81"));
+        jLabel1 = new javax.swing.JLabel();
+        RentalButton = new RoundedPanel(8, Color.decode("#80AF81"));
+        jLabel5 = new javax.swing.JLabel();
+        BodyPanel = new javax.swing.JPanel();
+        ContentPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1336, 720));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(153, 255, 255));
-        jPanel1.setPreferredSize(new java.awt.Dimension(240, 720));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        MainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        SideBarPanel.setBackground(new java.awt.Color(153, 255, 255));
+        SideBarPanel.setPreferredSize(new java.awt.Dimension(240, 720));
+        SideBarPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rental/cosplay/img/LogoKecil.png"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 24, -1, 92));
-
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rental/cosplay/img/Home.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 60, 70));
-
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rental/cosplay/img/Katalog.png"))); // NOI18N
-        jLabel3.setToolTipText("");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 60, 70));
-
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jButton2.setText("Home");
-        jButton2.setPreferredSize(new java.awt.Dimension(75, 75));
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 210, -1));
-
-        jButton3.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jButton3.setText("Katalog");
-        jButton3.setPreferredSize(new java.awt.Dimension(75, 75));
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 210, -1));
+        SideBarPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 24, -1, 92));
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rental/cosplay/img/Keluar.png"))); // NOI18N
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 640, 60, 70));
-
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rental/cosplay/img/Rental.png"))); // NOI18N
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 60, 70));
+        SideBarPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 640, 60, 70));
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jButton1.setText("Keluar");
         jButton1.setActionCommand("Katalog");
         jButton1.setPreferredSize(new java.awt.Dimension(75, 75));
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 640, 210, 70));
+        SideBarPanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 640, 210, 70));
 
-        jButton5.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jButton5.setText("Rental");
-        jButton5.setActionCommand("Katalog");
-        jButton5.setPreferredSize(new java.awt.Dimension(75, 75));
-        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 210, 70));
+        KatalogButton.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                KatalogButtonKeyPressed(evt);
+            }
+        });
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, -1));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rental/cosplay/img/Katalog.png"))); // NOI18N
+        jLabel3.setToolTipText("");
 
-        jButton4.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jButton4.setText("Rental");
-        jButton4.setActionCommand("Katalog");
-        jButton4.setPreferredSize(new java.awt.Dimension(75, 75));
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 210, 70));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 790, Short.MAX_VALUE)
+        javax.swing.GroupLayout KatalogButtonLayout = new javax.swing.GroupLayout(KatalogButton);
+        KatalogButton.setLayout(KatalogButtonLayout);
+        KatalogButtonLayout.setHorizontalGroup(
+            KatalogButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 200, Short.MAX_VALUE)
+            .addGroup(KatalogButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, KatalogButtonLayout.createSequentialGroup()
+                    .addContainerGap(70, Short.MAX_VALUE)
+                    .addComponent(jLabel3)
+                    .addContainerGap(80, Short.MAX_VALUE)))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 720, Short.MAX_VALUE)
+        KatalogButtonLayout.setVerticalGroup(
+            KatalogButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 82, Short.MAX_VALUE)
+            .addGroup(KatalogButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, KatalogButtonLayout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel3)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 790, 720));
+        SideBarPanel.add(KatalogButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 200, 60));
+
+        HomeButton.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                HomeButtonKeyPressed(evt);
+            }
+        });
+
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rental/cosplay/img/Home.png"))); // NOI18N
+        jLabel1.setText("      HOME");
+
+        javax.swing.GroupLayout HomeButtonLayout = new javax.swing.GroupLayout(HomeButton);
+        HomeButton.setLayout(HomeButtonLayout);
+        HomeButtonLayout.setHorizontalGroup(
+            HomeButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(HomeButtonLayout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 30, Short.MAX_VALUE))
+        );
+        HomeButtonLayout.setVerticalGroup(
+            HomeButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(HomeButtonLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        SideBarPanel.add(HomeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 200, 60));
+
+        RentalButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RentalButtonMouseClicked(evt);
+            }
+        });
+        RentalButton.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                RentalButtonKeyPressed(evt);
+            }
+        });
+
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rental/cosplay/img/Rental.png"))); // NOI18N
+
+        javax.swing.GroupLayout RentalButtonLayout = new javax.swing.GroupLayout(RentalButton);
+        RentalButton.setLayout(RentalButtonLayout);
+        RentalButtonLayout.setHorizontalGroup(
+            RentalButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 200, Short.MAX_VALUE)
+            .addGroup(RentalButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(RentalButtonLayout.createSequentialGroup()
+                    .addGap(0, 70, Short.MAX_VALUE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 70, Short.MAX_VALUE)))
+        );
+        RentalButtonLayout.setVerticalGroup(
+            RentalButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 70, Short.MAX_VALUE)
+            .addGroup(RentalButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(RentalButtonLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        SideBarPanel.add(RentalButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 200, 60));
+
+        MainPanel.add(SideBarPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, -1));
+
+        BodyPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        ContentPanel.setLayout(new java.awt.BorderLayout());
+        BodyPanel.add(ContentPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 910, 720));
+
+        MainPanel.add(BodyPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 790, 720));
+
+        getContentPane().add(MainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1040, 720));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void HomeButtonKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_HomeButtonKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_HomeButtonKeyPressed
+
+    private void KatalogButtonKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_KatalogButtonKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_KatalogButtonKeyPressed
+
+    private void RentalButtonKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RentalButtonKeyPressed
+        
+    }//GEN-LAST:event_RentalButtonKeyPressed
+
+    private void RentalButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RentalButtonMouseClicked
+        System.out.println("pindah");
+//        navigationController.goTo(this, new FormInformasiView());
+        getContentPanel().removeAll();
+       getContentPanel().add(new FormInformasiView());
+       getContentPanel().repaint();
+       getContentPanel().revalidate();
+    }//GEN-LAST:event_RentalButtonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -141,7 +235,7 @@ public class MainView extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        /* Create and display the form */
+        /* MainPanelCreate and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MainView().setVisible(true);
@@ -150,17 +244,18 @@ public class MainView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel BodyPanel;
+    private javax.swing.JPanel ContentPanel;
+    private javax.swing.JPanel HomeButton;
+    private javax.swing.JPanel KatalogButton;
+    private javax.swing.JPanel MainPanel;
+    private javax.swing.JPanel RentalButton;
+    private javax.swing.JPanel SideBarPanel;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }
