@@ -49,7 +49,7 @@ public class MainView extends javax.swing.JFrame {
         KatalogButton = new RoundedPanel(8, Color.decode("#80AF81"));
         jLabel3 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        HomeButton = new RoundedPanel(8, Color.decode("#80AF81"));
+        HomeButton = new RoundedPanel(8, Color.decode("#F7CAC9"));
         jLabel1 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         RentalButton = new RoundedPanel(8, Color.decode("#80AF81"));
@@ -66,7 +66,8 @@ public class MainView extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         MainPanel.setBackground(new java.awt.Color(255, 255, 255));
-        MainPanel.setPreferredSize(new java.awt.Dimension(1336, 720));
+        MainPanel.setMinimumSize(new java.awt.Dimension(1290, 720));
+        MainPanel.setPreferredSize(new java.awt.Dimension(1300, 720));
         MainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         SideBarPanel.setBackground(new java.awt.Color(0, 204, 204));
@@ -220,15 +221,16 @@ public class MainView extends javax.swing.JFrame {
 
         MainPanel.add(SideBarPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 240, -1));
 
+        BodyPanel.setPreferredSize(new java.awt.Dimension(1050, 720));
         BodyPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        ContentPanel.setPreferredSize(new java.awt.Dimension(1070, 720));
+        ContentPanel.setPreferredSize(new java.awt.Dimension(1050, 720));
         ContentPanel.setLayout(new java.awt.BorderLayout());
-        BodyPanel.add(ContentPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 720));
+        BodyPanel.add(ContentPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 720));
 
         MainPanel.add(BodyPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, -1, 720));
 
-        getContentPane().add(MainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(MainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1290, 720));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

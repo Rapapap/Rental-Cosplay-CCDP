@@ -28,6 +28,7 @@ public class EditFormInformasi extends javax.swing.JPanel {
     private void initComponents() {
 
         UkuranKostum = new javax.swing.ButtonGroup();
+        jMenu1 = new javax.swing.JMenu();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -50,6 +51,8 @@ public class EditFormInformasi extends javax.swing.JPanel {
         jRadioButton4 = new javax.swing.JRadioButton();
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
+
+        jMenu1.setText("jMenu1");
 
         setPreferredSize(new java.awt.Dimension(530, 660));
 
@@ -188,6 +191,7 @@ public class EditFormInformasi extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
