@@ -10,6 +10,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JPanel;
 import rental.cosplay.components.RoundedPanel;
+import rental.cosplay.view.kostum.KostumPanel;
 
 /**
  *
@@ -78,6 +79,11 @@ public class MainView extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rental/cosplay/img/LogoKecil.png"))); // NOI18N
         SideBarPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 24, -1, 92));
 
+        KatalogButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                KatalogButtonMouseClicked(evt);
+            }
+        });
         KatalogButton.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 KatalogButtonKeyPressed(evt);
@@ -240,7 +246,7 @@ public class MainView extends javax.swing.JFrame {
     }//GEN-LAST:event_HomeButtonKeyPressed
 
     private void KatalogButtonKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_KatalogButtonKeyPressed
-        // TODO add your handling code here:
+            // TODO add your handling code here:
     }//GEN-LAST:event_KatalogButtonKeyPressed
 
     private void RentalButtonKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RentalButtonKeyPressed
@@ -262,6 +268,10 @@ public class MainView extends javax.swing.JFrame {
     private void LogoutButtonKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_LogoutButtonKeyPressed
         
     }//GEN-LAST:event_LogoutButtonKeyPressed
+
+    private void KatalogButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KatalogButtonMouseClicked
+        navigationController.goTo(this, new KostumPanel());
+    }//GEN-LAST:event_KatalogButtonMouseClicked
 
     /**
      * @param args the command line arguments
