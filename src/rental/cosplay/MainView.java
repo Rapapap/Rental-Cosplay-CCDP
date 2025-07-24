@@ -21,6 +21,8 @@ public class MainView extends javax.swing.JFrame {
     NavigationController navigationController;
     AuthController authController;
     UserModel user;
+    Color pink = new Color(242, 155, 180); 
+    Color putih = new Color(254, 239, 244);
     
     public MainView() {
         initComponents();
@@ -29,12 +31,28 @@ public class MainView extends javax.swing.JFrame {
         authController = new AuthController();
         
         navigationController.goTo(this, new HomeView());
+   
+
+        SideBarPanel.setBackground(new Color(248, 180, 206)); 
+        HomeButton.setBackground(new Color(254, 239, 244));
+        KatalogButton.setBackground(new Color(242, 155, 180)); 
+        RentalButton.setBackground(new Color(242, 155, 180));  
+        LogoutButton.setBackground(new Color(242, 155, 180));  
+
     }
 
     public JPanel getContentPanel() {
         return ContentPanel;
     }
-  
+    
+    
+    private void resetSidebarColor() {
+        HomeButton.setBackground(pink);
+        KatalogButton.setBackground(pink);
+        RentalButton.setBackground(pink);
+        LogoutButton.setBackground(pink);
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -45,15 +63,15 @@ public class MainView extends javax.swing.JFrame {
     private void initComponents() {
 
         MainPanel = new javax.swing.JPanel();
-        SideBarPanel = new javax.swing.JPanel();
+        SideBarPanel = new RoundedPanel(8, Color.decode("#F7A8C7"));
         jLabel2 = new javax.swing.JLabel();
-        KatalogButton = new RoundedPanel(8, Color.decode("#80AF81"));
+        KatalogButton = new RoundedPanel(30, Color.decode("#80AF81"));
         jLabel3 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        HomeButton = new RoundedPanel(8, Color.decode("#F7CAC9"));
+        HomeButton = new RoundedPanel(30, Color.decode("#F7CAC9"));
         jLabel1 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        RentalButton = new RoundedPanel(8, Color.decode("#80AF81"));
+        RentalButton = new RoundedPanel(30, Color.decode("#80AF81"));
         jLabel5 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         LogoutButton = new RoundedPanel(8, Color.decode("#80AF81"));
@@ -71,7 +89,7 @@ public class MainView extends javax.swing.JFrame {
         MainPanel.setPreferredSize(new java.awt.Dimension(1300, 720));
         MainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        SideBarPanel.setBackground(new java.awt.Color(0, 204, 204));
+        SideBarPanel.setBackground(new java.awt.Color(153, 255, 255));
         SideBarPanel.setPreferredSize(new java.awt.Dimension(240, 720));
         SideBarPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -255,10 +273,16 @@ public class MainView extends javax.swing.JFrame {
 
     private void RentalButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RentalButtonMouseClicked
         navigationController.goTo(this, new FormInformasiView());
+        resetSidebarColor();
+        RentalButton.setBackground(putih);
+  
     }//GEN-LAST:event_RentalButtonMouseClicked
 
     private void HomeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeButtonMouseClicked
         navigationController.goTo(this, new HomeView());
+        resetSidebarColor();  // Semua tombol balik ke pink
+        HomeButton.setBackground(putih); 
+        
     }//GEN-LAST:event_HomeButtonMouseClicked
 
     private void LogoutButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogoutButtonMouseClicked
@@ -271,6 +295,8 @@ public class MainView extends javax.swing.JFrame {
 
     private void KatalogButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KatalogButtonMouseClicked
         navigationController.goTo(this, new KostumPanel());
+        resetSidebarColor();
+        KatalogButton.setBackground(putih);
     }//GEN-LAST:event_KatalogButtonMouseClicked
 
     /**

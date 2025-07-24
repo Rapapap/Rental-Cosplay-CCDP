@@ -6,6 +6,7 @@
 package rental.cosplay;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 
 /**
  *
@@ -29,7 +30,7 @@ public class HomeView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        PanelUtama = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -48,18 +49,18 @@ public class HomeView extends javax.swing.JPanel {
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.setPreferredSize(new java.awt.Dimension(1050, 720));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        PanelUtama.setBackground(new java.awt.Color(255, 255, 255));
+        PanelUtama.setPreferredSize(new java.awt.Dimension(1050, 720));
+        PanelUtama.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rental/cosplay/img/Stiker2.png"))); // NOI18N
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 160, -1, -1));
+        PanelUtama.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 160, -1, -1));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rental/cosplay/img/Stiker1.png"))); // NOI18N
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
+        PanelUtama.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rental/cosplay/img/Stiker3.png"))); // NOI18N
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 150, 190, 190));
+        PanelUtama.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 150, 190, 190));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setPreferredSize(new java.awt.Dimension(320, 0));
@@ -91,7 +92,7 @@ public class HomeView extends javax.swing.JPanel {
                 .addComponent(jLabel6))
         );
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 280, -1, 211));
+        PanelUtama.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 280, -1, 211));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setPreferredSize(new java.awt.Dimension(320, 211));
@@ -121,9 +122,9 @@ public class HomeView extends javax.swing.JPanel {
                 .addComponent(jLabel5))
         );
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 280, 320, -1));
+        PanelUtama.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 280, 320, -1));
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
         jPanel2.setPreferredSize(new java.awt.Dimension(320, 0));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
@@ -152,7 +153,7 @@ public class HomeView extends javax.swing.JPanel {
                 .addComponent(jLabel1))
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, -1, 211));
+        PanelUtama.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, -1, 211));
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -183,13 +184,14 @@ public class HomeView extends javax.swing.JPanel {
                 .addContainerGap(55, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1030, -1));
+        PanelUtama.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1030, -1));
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, -1));
+        add(PanelUtama, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel PanelUtama;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -201,7 +203,6 @@ public class HomeView extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
