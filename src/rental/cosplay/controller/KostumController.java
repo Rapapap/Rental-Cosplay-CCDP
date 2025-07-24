@@ -108,7 +108,7 @@ public class KostumController {
             while (!unique) {
                 int randomNum = 1000 + random.nextInt(9000);
                 id = "C-" + randomNum; //ID KOSTUM DIMULAI DARI C
-                PreparedStatement preparedStatement = connection.prepareStatement("SELECT COUNT(*) FROM obat WHERE id_kostum = ?");
+                PreparedStatement preparedStatement = connection.prepareStatement("SELECT COUNT(*) FROM kostum WHERE id_kostum = ?");
                 preparedStatement.setString(1, id);
                 ResultSet resultSet = preparedStatement.executeQuery();
                 if (resultSet.next() && resultSet.getInt(1) == 0) {
