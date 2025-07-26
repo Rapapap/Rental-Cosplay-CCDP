@@ -8,6 +8,7 @@ package rental.cosplay.view.rental;
 import RentalCosplayModel.RentalModel;
 import java.awt.Color;
 import java.util.List;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import rental.cosplay.components.ShadowPanel;
 import rental.cosplay.controller.RentalController;
@@ -29,6 +30,14 @@ public class RentalDataView extends javax.swing.JPanel {
     public RentalDataView() {
         initComponents();
         rentalController = new RentalController();
+        
+        TableData.setBackground(new Color(255, 240, 245));
+        TableData.setSelectionBackground(new Color(255, 240, 245));
+
+        DefaultTableCellRenderer renderer = new DefaultTableCellRenderer();
+        renderer.setBackground(new Color(255, 240, 245));
+        TableData.getParent().setBackground(new Color(255, 240, 245));
+        TableData.getTableHeader().setBackground(new Color(255, 192, 203)); 
         
         UpdateTable();
     }
