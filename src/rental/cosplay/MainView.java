@@ -11,6 +11,7 @@ import java.awt.Color;
 import javax.swing.JPanel;
 import rental.cosplay.components.RoundedPanel;
 import rental.cosplay.view.kostum.KostumPanel;
+import rental.cosplay.view.rental.RentalDataView;
 
 /**
  *
@@ -21,31 +22,30 @@ public class MainView extends javax.swing.JFrame {
     NavigationController navigationController;
     AuthController authController;
     UserModel user;
-    Color pink = new Color(242, 155, 180); 
+    Color pink = new Color(242, 155, 180);
     Color putih = new Color(254, 239, 244);
-    
+    String lokasi = "";
+
     public MainView() {
         initComponents();
-        
+
         navigationController = new NavigationController();
         authController = new AuthController();
-        
-        navigationController.goTo(this, new HomeView());
-   
 
-        SideBarPanel.setBackground(new Color(248, 180, 206)); 
-        HomeButton.setBackground(new Color(254, 239, 244));
-        KatalogButton.setBackground(new Color(242, 155, 180)); 
-        RentalButton.setBackground(new Color(242, 155, 180));  
-        LogoutButton.setBackground(new Color(242, 155, 180));  
+        navigationController.goTo(this, new HomeView());
+        lokasi = "HOME";
+
+        HomeButton.setBackground(putih);
+        KatalogButton.setBackground(pink);
+        RentalButton.setBackground(pink);
+        LogoutButton.setBackground(pink);
 
     }
 
     public JPanel getContentPanel() {
         return ContentPanel;
     }
-    
-    
+
     private void resetSidebarColor() {
         HomeButton.setBackground(pink);
         KatalogButton.setBackground(pink);
@@ -74,7 +74,7 @@ public class MainView extends javax.swing.JFrame {
         RentalButton = new RoundedPanel(30, Color.decode("#80AF81"));
         jLabel5 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        LogoutButton = new RoundedPanel(8, Color.decode("#80AF81"));
+        LogoutButton = new RoundedPanel(30, Color.decode("#80AF81"));
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         BodyPanel = new javax.swing.JPanel();
@@ -89,7 +89,7 @@ public class MainView extends javax.swing.JFrame {
         MainPanel.setPreferredSize(new java.awt.Dimension(1300, 720));
         MainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        SideBarPanel.setBackground(new java.awt.Color(153, 255, 255));
+        SideBarPanel.setBackground(new java.awt.Color(248, 187, 208));
         SideBarPanel.setPreferredSize(new java.awt.Dimension(240, 720));
         SideBarPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -100,6 +100,12 @@ public class MainView extends javax.swing.JFrame {
         KatalogButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 KatalogButtonMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                KatalogButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                KatalogButtonMouseExited(evt);
             }
         });
         KatalogButton.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -137,6 +143,12 @@ public class MainView extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 HomeButtonMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                HomeButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                HomeButtonMouseExited(evt);
+            }
         });
         HomeButton.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -172,6 +184,12 @@ public class MainView extends javax.swing.JFrame {
         RentalButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 RentalButtonMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                RentalButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                RentalButtonMouseExited(evt);
             }
         });
         RentalButton.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -209,6 +227,12 @@ public class MainView extends javax.swing.JFrame {
         LogoutButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 LogoutButtonMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                LogoutButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                LogoutButtonMouseExited(evt);
             }
         });
         LogoutButton.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -264,25 +288,27 @@ public class MainView extends javax.swing.JFrame {
     }//GEN-LAST:event_HomeButtonKeyPressed
 
     private void KatalogButtonKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_KatalogButtonKeyPressed
-            // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_KatalogButtonKeyPressed
 
     private void RentalButtonKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RentalButtonKeyPressed
-        
+
     }//GEN-LAST:event_RentalButtonKeyPressed
 
     private void RentalButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RentalButtonMouseClicked
-        navigationController.goTo(this, new FormInformasiView());
+        navigationController.goTo(this, new RentalDataView());
+        lokasi = "RENTAL";
         resetSidebarColor();
         RentalButton.setBackground(putih);
-  
+
     }//GEN-LAST:event_RentalButtonMouseClicked
 
     private void HomeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeButtonMouseClicked
         navigationController.goTo(this, new HomeView());
-        resetSidebarColor();  // Semua tombol balik ke pink
-        HomeButton.setBackground(putih); 
-        
+        resetSidebarColor();
+        lokasi = "HOME";
+        HomeButton.setBackground(putih);
+
     }//GEN-LAST:event_HomeButtonMouseClicked
 
     private void LogoutButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogoutButtonMouseClicked
@@ -290,14 +316,59 @@ public class MainView extends javax.swing.JFrame {
     }//GEN-LAST:event_LogoutButtonMouseClicked
 
     private void LogoutButtonKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_LogoutButtonKeyPressed
-        
+
     }//GEN-LAST:event_LogoutButtonKeyPressed
 
     private void KatalogButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KatalogButtonMouseClicked
         navigationController.goTo(this, new KostumPanel());
         resetSidebarColor();
+        lokasi = "KATALOG";
         KatalogButton.setBackground(putih);
     }//GEN-LAST:event_KatalogButtonMouseClicked
+
+    private void HomeButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeButtonMouseEntered
+        if (lokasi != "HOME") {
+            HomeButton.setBackground(putih);
+        }
+    }//GEN-LAST:event_HomeButtonMouseEntered
+
+    private void HomeButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeButtonMouseExited
+        if (lokasi != "HOME") {
+            HomeButton.setBackground(pink);
+        }
+    }//GEN-LAST:event_HomeButtonMouseExited
+
+    private void KatalogButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KatalogButtonMouseEntered
+        if (lokasi != "KATALOG") {
+            KatalogButton.setBackground(putih);
+        }
+    }//GEN-LAST:event_KatalogButtonMouseEntered
+
+    private void KatalogButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KatalogButtonMouseExited
+        if (lokasi != "KATALOG") {
+            KatalogButton.setBackground(pink);
+        }
+    }//GEN-LAST:event_KatalogButtonMouseExited
+
+    private void RentalButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RentalButtonMouseEntered
+        if (lokasi != "RENTAL") {
+            RentalButton.setBackground(putih);
+        }
+    }//GEN-LAST:event_RentalButtonMouseEntered
+
+    private void RentalButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RentalButtonMouseExited
+        if (lokasi != "RENTAL") {
+            RentalButton.setBackground(pink);
+        }
+    }//GEN-LAST:event_RentalButtonMouseExited
+
+    private void LogoutButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogoutButtonMouseEntered
+        LogoutButton.setBackground(putih);
+    }//GEN-LAST:event_LogoutButtonMouseEntered
+
+    private void LogoutButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogoutButtonMouseExited
+        LogoutButton.setBackground(pink);
+    }//GEN-LAST:event_LogoutButtonMouseExited
 
     /**
      * @param args the command line arguments

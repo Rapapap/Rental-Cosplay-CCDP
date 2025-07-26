@@ -7,6 +7,7 @@ package rental.cosplay;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import rental.cosplay.components.ShadowPanel;
 
 /**
  *
@@ -43,13 +44,13 @@ public class HomeView extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
+        jPanel5 = new ShadowPanel(30,  Color.decode("#F8BBD0"));
         jLabel4 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        PanelUtama.setBackground(new java.awt.Color(255, 255, 255));
+        PanelUtama.setBackground(new java.awt.Color(254, 235, 237));
         PanelUtama.setPreferredSize(new java.awt.Dimension(1050, 720));
         PanelUtama.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -62,7 +63,7 @@ public class HomeView extends javax.swing.JPanel {
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rental/cosplay/img/Stiker3.png"))); // NOI18N
         PanelUtama.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 150, 190, 190));
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBackground(new java.awt.Color(255, 248, 248));
         jPanel3.setPreferredSize(new java.awt.Dimension(320, 0));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
@@ -94,7 +95,7 @@ public class HomeView extends javax.swing.JPanel {
 
         PanelUtama.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 280, -1, 211));
 
-        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setBackground(new java.awt.Color(255, 248, 248));
         jPanel4.setPreferredSize(new java.awt.Dimension(320, 211));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
@@ -124,7 +125,8 @@ public class HomeView extends javax.swing.JPanel {
 
         PanelUtama.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 280, 320, -1));
 
-        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel2.setBackground(new java.awt.Color(255, 248, 248));
+        jPanel2.setForeground(new java.awt.Color(255, 255, 255));
         jPanel2.setPreferredSize(new java.awt.Dimension(320, 0));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
@@ -155,8 +157,8 @@ public class HomeView extends javax.swing.JPanel {
 
         PanelUtama.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, -1, 211));
 
-        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel5.setBackground(new java.awt.Color(255, 248, 248));
+        jPanel5.setBorder(null);
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -171,7 +173,7 @@ public class HomeView extends javax.swing.JPanel {
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1028, Short.MAX_VALUE)
+            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1030, Short.MAX_VALUE)
             .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel5Layout.setVerticalGroup(
@@ -181,10 +183,10 @@ public class HomeView extends javax.swing.JPanel {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel10)
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
-        PanelUtama.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1030, -1));
+        PanelUtama.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 1030, 100));
 
         add(PanelUtama, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, -1));
     }// </editor-fold>//GEN-END:initComponents

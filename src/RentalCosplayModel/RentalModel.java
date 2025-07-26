@@ -9,7 +9,7 @@ public class RentalModel {
     private int durasiPinjam;
     private String ukuran;
     
-    RentalModel(String nama, String nomorTelp, String alamat, String kostum, String ukuran, int durasiPinjam){
+    public RentalModel(String nama, String nomorTelp, String alamat, String kostum, String ukuran, int durasiPinjam){
         this.nama = nama;
         this.nomorTelp = nomorTelp;
         this.alamat = alamat;
