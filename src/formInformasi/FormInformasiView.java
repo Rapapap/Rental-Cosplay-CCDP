@@ -50,6 +50,7 @@ public final class FormInformasiView extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -153,6 +154,9 @@ public final class FormInformasiView extends javax.swing.JPanel {
         jLabel9.setText("Hari");
         jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 460, -1, -1));
 
+        jTextField1.setText("jTextField1");
+        jPanel3.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 100, -1, -1));
+
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, 670));
 
         jPanel4.setPreferredSize(new java.awt.Dimension(1020, 100));
@@ -202,6 +206,7 @@ public final class FormInformasiView extends javax.swing.JPanel {
     private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextAreaAlamat;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextFieldNama;
     private javax.swing.JTextField jTextFieldNomor;
     // End of variables declaration//GEN-END:variables

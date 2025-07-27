@@ -296,7 +296,7 @@ public class MainView extends javax.swing.JFrame {
     }//GEN-LAST:event_RentalButtonKeyPressed
 
     private void RentalButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RentalButtonMouseClicked
-        navigationController.goTo(this, new RentalDataView());
+        navigationController.goTo(this, new FormInformasiView());
         lokasi = "RENTAL";
         resetSidebarColor();
         RentalButton.setBackground(putih);
