@@ -34,10 +34,11 @@ public class MainView extends javax.swing.JFrame {
 
         navigationController.goTo(this, new HomeView());
         lokasi = "HOME";
-
+        
         HomeButton.setBackground(putih);
         KatalogButton.setBackground(pink);
         RentalButton.setBackground(pink);
+        RentalData.setBackground(pink);
         LogoutButton.setBackground(pink);
 
     }
@@ -51,6 +52,7 @@ public class MainView extends javax.swing.JFrame {
         KatalogButton.setBackground(pink);
         RentalButton.setBackground(pink);
         LogoutButton.setBackground(pink);
+        RentalData.setBackground(pink);
     }
 
     /**
@@ -77,6 +79,9 @@ public class MainView extends javax.swing.JFrame {
         LogoutButton = new RoundedPanel(30, Color.decode("#80AF81"));
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        RentalData = new RoundedPanel(30, Color.decode("#80AF81"));
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
         BodyPanel = new javax.swing.JPanel();
         ContentPanel = new javax.swing.JPanel();
 
@@ -210,9 +215,9 @@ public class MainView extends javax.swing.JFrame {
         RentalButtonLayout.setHorizontalGroup(
             RentalButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(RentalButtonLayout.createSequentialGroup()
-                .addComponent(jLabel5)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE))
+                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE))
         );
         RentalButtonLayout.setVerticalGroup(
             RentalButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -267,6 +272,47 @@ public class MainView extends javax.swing.JFrame {
 
         SideBarPanel.add(LogoutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 640, 200, 60));
 
+        RentalData.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RentalDataMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                RentalDataMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                RentalDataMouseExited(evt);
+            }
+        });
+        RentalData.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                RentalDataKeyPressed(evt);
+            }
+        });
+
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rental/cosplay/img/RentalDataIcon.png"))); // NOI18N
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel14.setText("Rental Data");
+
+        javax.swing.GroupLayout RentalDataLayout = new javax.swing.GroupLayout(RentalData);
+        RentalData.setLayout(RentalDataLayout);
+        RentalDataLayout.setHorizontalGroup(
+            RentalDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RentalDataLayout.createSequentialGroup()
+                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE))
+        );
+        RentalDataLayout.setVerticalGroup(
+            RentalDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+            .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        SideBarPanel.add(RentalData, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 200, 60));
+
         MainPanel.add(SideBarPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 240, -1));
 
         BodyPanel.setPreferredSize(new java.awt.Dimension(1050, 720));
@@ -320,7 +366,7 @@ public class MainView extends javax.swing.JFrame {
     }//GEN-LAST:event_LogoutButtonKeyPressed
 
     private void KatalogButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KatalogButtonMouseClicked
-        navigationController.goTo(this, new KostumPanel());
+        navigationController.goTo(this, new RentalDataView());
         resetSidebarColor();
         lokasi = "KATALOG";
         KatalogButton.setBackground(putih);
@@ -370,6 +416,34 @@ public class MainView extends javax.swing.JFrame {
         LogoutButton.setBackground(pink);
     }//GEN-LAST:event_LogoutButtonMouseExited
 
+    private void RentalDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RentalDataMouseClicked
+        // TODO add your handling code here:
+        navigationController.goTo(this, new RentalDataView());
+        resetSidebarColor();
+        lokasi = "RENTALDATA";
+        RentalData.setBackground(putih);
+
+                
+    }//GEN-LAST:event_RentalDataMouseClicked
+
+    private void RentalDataMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RentalDataMouseEntered
+        // TODO add your handling code here:
+        if (lokasi != "RENTALDATA") {
+            RentalData.setBackground(putih);
+        }
+    }//GEN-LAST:event_RentalDataMouseEntered
+
+    private void RentalDataMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RentalDataMouseExited
+        // TODO add your handling code here:
+        if (lokasi != "RENTALDATA") {
+            RentalData.setBackground(pink);
+        }
+    }//GEN-LAST:event_RentalDataMouseExited
+
+    private void RentalDataKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RentalDataKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RentalDataKeyPressed
+
     /**
      * @param args the command line arguments
      */
@@ -413,9 +487,12 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JPanel LogoutButton;
     private javax.swing.JPanel MainPanel;
     private javax.swing.JPanel RentalButton;
+    private javax.swing.JPanel RentalData;
     private javax.swing.JPanel SideBarPanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
