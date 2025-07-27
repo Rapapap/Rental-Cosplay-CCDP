@@ -22,7 +22,7 @@ public class KostumController {
         Connection connection = dbConnection.getConnection();
         boolean isAdded = false;
 
-        String sql = "INSERT INTO kostum (id_kostum, nama, ukuran, harga) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO kostum (id_kostum, nama, ukuran, harga, deskripsi) VALUES (?, ?, ?, ?, ?)";
         try {
             kostum.setId_kostum(generateUniqueId(connection));
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -30,6 +30,7 @@ public class KostumController {
             preparedStatement.setString(2, kostum.getNama());
             preparedStatement.setString(3, kostum.getUkuran());
             preparedStatement.setInt(4, kostum.getHarga());
+            preparedStatement.setString(5, kostum.getDeskripsi());
 
             isAdded = preparedStatement.executeUpdate() > 0;
         } catch (SQLException e) {
@@ -53,8 +54,9 @@ public class KostumController {
                 String nama = resultSet.getString("nama");
                 String ukuran = resultSet.getString("ukuran");
                 int harga = resultSet.getInt("harga");
+                String deskripsi = resultSet.getString("deskripsi");
 
-                kostum.add(new KostumModel(id_kostum, nama, ukuran, harga));
+                kostum.add(new KostumModel(id_kostum, nama, ukuran, harga, deskripsi));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -67,13 +69,14 @@ public class KostumController {
         Connection connection = dbConnection.getConnection();
         boolean isUpdated = false;
 
-        String sql = "UPDATE kostum SET nama = ?, ukuran = ?, harga = ? WHERE id_kostum = ?";
+        String sql = "UPDATE kostum SET nama = ?, ukuran = ?, harga = ?, deskripsi = ? WHERE id_kostum = ?";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, kostum.getNama());
             preparedStatement.setString(2, kostum.getUkuran());
             preparedStatement.setInt(3, kostum.getHarga());
-            preparedStatement.setString(4, kostum.getId_kostum());
+            preparedStatement.setString(4, kostum.getDeskripsi());
+            preparedStatement.setString(5, kostum.getId_kostum());
 
             isUpdated = preparedStatement.executeUpdate() > 0;
         } catch (SQLException e) {
