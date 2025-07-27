@@ -6,20 +6,50 @@
 package formInformasi;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import rental.cosplay.controller.KostumController;
+import rental.cosplay.model.KostumModel;
+import java.util.List;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLDataException;
+import rental.cosplay.model.RentalModel;
+import rental.cosplay.controller.FormController;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import rental.cosplay.DatabaseConnection;
+import rental.cosplay.model.KostumModel;
 
 /**
  *
  * @author LENOVO LOOQ
  */
 public final class FormInformasiView extends javax.swing.JPanel {
+    private List<KostumModel> listKostum = new ArrayList<>();
+    private KostumController kostumController = new KostumController();
+    // Jangan pakai jComboBoxKostum dari designer
+    private javax.swing.JComboBox<KostumModel> comboKostumManual; // ini ngerubah dropdown nya 
 
     /**
      * Creates new form FormInformasiView
      */
     public FormInformasiView() {
         initComponents();
+        tampilDataKostum();
     }
-
+    
+    public void tampilDataKostum(){
+        listKostum = kostumController.getAllKostum(); // ngambil semua data dari database kostum
+        
+        jComboBoxKostum.removeAllItems(); // ini untuk menghapus item sebelumnya
+        for (KostumModel kostum : listKostum){
+            jComboBoxKostum.addItem(kostum.getNama()); // ini untuk nambahin ke dropdown nya
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -35,22 +65,21 @@ public final class FormInformasiView extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextAreaAlamat = new javax.swing.JTextArea();
         jLabel5 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButtonSimpanData = new javax.swing.JButton();
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton3 = new javax.swing.JRadioButton();
-        jTextFieldNama = new javax.swing.JTextField();
-        jTextFieldNomor = new javax.swing.JTextField();
         jComboBoxKostum = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jTextFieldNama = new javax.swing.JTextField();
+        jTextFieldNomor = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextAreaAlamat = new javax.swing.JTextArea();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -76,14 +105,6 @@ public final class FormInformasiView extends javax.swing.JPanel {
         jLabel4.setText("Nomor Telepon");
         jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, -1, -1));
 
-        jScrollPane1.setPreferredSize(new java.awt.Dimension(420, 100));
-
-        jTextAreaAlamat.setColumns(20);
-        jTextAreaAlamat.setRows(5);
-        jScrollPane1.setViewportView(jTextAreaAlamat);
-
-        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, 430, -1));
-
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel5.setText("Alamat");
         jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, -1, -1));
@@ -93,6 +114,7 @@ public final class FormInformasiView extends javax.swing.JPanel {
         jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 365, -1, -1));
 
         jButtonSimpanData.setText("Simpan Data");
+        jButtonSimpanData.setFocusable(false);
         jButtonSimpanData.setPreferredSize(new java.awt.Dimension(300, 40));
         jButtonSimpanData.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -126,16 +148,13 @@ public final class FormInformasiView extends javax.swing.JPanel {
         });
         jPanel3.add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 460, -1, -1));
 
-        jTextFieldNama.setPreferredSize(new java.awt.Dimension(430, 40));
-        jTextFieldNama.setRequestFocusEnabled(false);
-        jPanel3.add(jTextFieldNama, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, -1, -1));
-
-        jTextFieldNomor.setPreferredSize(new java.awt.Dimension(430, 40));
-        jTextFieldNomor.setRequestFocusEnabled(false);
-        jPanel3.add(jTextFieldNomor, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, -1, -1));
-
         jComboBoxKostum.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kostum1", "Kostum2", "Kostum3" }));
         jComboBoxKostum.setPreferredSize(new java.awt.Dimension(300, 40));
+        jComboBoxKostum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxKostumActionPerformed(evt);
+            }
+        });
         jPanel3.add(jComboBoxKostum, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -154,8 +173,19 @@ public final class FormInformasiView extends javax.swing.JPanel {
         jLabel9.setText("Hari");
         jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 460, -1, -1));
 
-        jTextField1.setText("jTextField1");
-        jPanel3.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 100, -1, -1));
+        jTextFieldNama.setPreferredSize(new java.awt.Dimension(430, 40));
+        jPanel3.add(jTextFieldNama, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, -1, -1));
+
+        jTextFieldNomor.setPreferredSize(new java.awt.Dimension(430, 40));
+        jPanel3.add(jTextFieldNomor, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, -1, -1));
+
+        jScrollPane2.setPreferredSize(new java.awt.Dimension(430, 96));
+
+        jTextAreaAlamat.setColumns(20);
+        jTextAreaAlamat.setRows(5);
+        jScrollPane2.setViewportView(jTextAreaAlamat);
+
+        jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, -1, -1));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, 670));
 
@@ -173,6 +203,42 @@ public final class FormInformasiView extends javax.swing.JPanel {
 
     private void jButtonSimpanDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSimpanDataActionPerformed
         // TODO add your handling code here:
+        String nama = jTextFieldNama.getText();
+        String nomor = jTextFieldNomor.getText();
+        String alamat = jTextAreaAlamat.getText();
+        
+        //ambil durasi pinjam dari combobox
+        int durasi = Integer.parseInt((String) jComboBox1.getSelectedItem());
+        
+        //ngambil informasi kostum yang di pilih nya
+        KostumModel selectedKostum = (KostumModel) jComboBoxKostum.getSelectedItem();
+        String kostum = selectedKostum.getId_kostum();
+        int harga = selectedKostum.getHarga();
+        
+        //ngambil data radio button nya 
+        String ukuran = "";
+        if (jRadioButton1.isSelected()){
+            ukuran = "L";
+        } else if(jRadioButton2.isSelected()){
+            ukuran = "XL";
+        } else {
+            ukuran = "XXL";
+        }
+        
+        // kirim ke model
+        RentalModel from = new RentalModel();
+        from.setNama(nama);
+        from.setNomorTelp(nomor);
+        from.setAlamat(alamat);
+        from.setKostum(kostum);
+        from.setUkuran(ukuran);
+        from.setDurasiPinjam(durasi);
+        
+        FormController controller = new FormController();
+        controller.tambahUser(from);
+        
+        
+        
     }//GEN-LAST:event_jButtonSimpanDataActionPerformed
 
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
@@ -182,6 +248,10 @@ public final class FormInformasiView extends javax.swing.JPanel {
     private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton3ActionPerformed
+
+    private void jComboBoxKostumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxKostumActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxKostumActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -204,10 +274,10 @@ public final class FormInformasiView extends javax.swing.JPanel {
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextAreaAlamat;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextFieldNama;
     private javax.swing.JTextField jTextFieldNomor;
     // End of variables declaration//GEN-END:variables
 }
+

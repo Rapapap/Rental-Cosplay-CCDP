@@ -56,4 +56,8 @@ public class KostumModel {
         this.deskripsi = deskripsi;
     }
     
+    @Override
+    public String toString(){
+        return nama; // agar yang di tampilkan di dropdown tetap nama
+    }
 }

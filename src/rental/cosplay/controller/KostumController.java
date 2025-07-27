@@ -125,4 +125,24 @@ public class KostumController {
         return null;
     }
     
+    public List<String> getNamaKostumList() {
+        List<String> namaList = new ArrayList<>();
+        Connection connection = dbConnection.getConnection();
+
+        String sql = "SELECT nama FROM kostum";
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                namaList.add(resultSet.getString("nama"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return namaList;
+}
+
+    
 }
