@@ -7,6 +7,9 @@ package rental.cosplay;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import rental.cosplay.components.ShadowPanel;
 
 /**
@@ -20,7 +23,46 @@ public class HomeView extends javax.swing.JPanel {
      */
     public HomeView() {
         initComponents();
+        tampilkanJumlahKostum();
+        
     }
+    
+    private void tampilkanJumlahKostum() {
+        try {
+            DatabaseConnection db = new DatabaseConnection();
+            Connection conn = db.getConnection();              
+            Statement stmt = conn.createStatement();
+
+            ResultSet rs1 = stmt.executeQuery("SELECT COUNT(*) FROM kostum");
+            if (rs1.next()) {
+                jJumlahKostum.setText(String.valueOf(rs1.getInt(1))); 
+            }
+
+            ResultSet rs2 = stmt.executeQuery("SELECT COUNT(*) FROM rental WHERE status = 'Dipinjam'; ");
+            if (rs2.next()) {
+                jJumlahRental.setText(String.valueOf(rs2.getInt(1))); 
+            }
+            ResultSet rs3 = stmt.executeQuery(
+            "SELECT COUNT(*) FROM rental " +
+            "WHERE " +
+            "(tgl_kembali != '0000-00-00' AND tgl_kembali > DATE_ADD(tgl_pinjam, INTERVAL durasi_pinjam DAY)) " +
+            "OR (tgl_kembali = '0000-00-00' AND CURDATE() > DATE_ADD(tgl_pinjam, INTERVAL durasi_pinjam DAY))"
+            );
+            if (rs3.next()) {
+                jTelat.setText(String.valueOf(rs3.getInt(1)));
+            }
+
+            
+
+            stmt.close();
+            conn.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }    
+
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -37,13 +79,13 @@ public class HomeView extends javax.swing.JPanel {
         jLabel9 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        jTelat = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
+        jJumlahRental = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jJumlahKostum = new javax.swing.JLabel();
         jPanel5 = new ShadowPanel(30,  Color.decode("#F8BBD0"));
         jLabel4 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -70,9 +112,9 @@ public class HomeView extends javax.swing.JPanel {
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Kostum Yang Telat Dikembalikan");
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("0");
+        jTelat.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
+        jTelat.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jTelat.setText("0");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -81,14 +123,14 @@ public class HomeView extends javax.swing.JPanel {
             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel7)
+                .addComponent(jTelat)
                 .addGap(37, 37, 37))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(46, 46, 46)
-                .addComponent(jLabel7)
+                .addComponent(jTelat)
                 .addGap(78, 78, 78)
                 .addComponent(jLabel6))
         );
@@ -98,8 +140,8 @@ public class HomeView extends javax.swing.JPanel {
         jPanel4.setBackground(new java.awt.Color(255, 248, 248));
         jPanel4.setPreferredSize(new java.awt.Dimension(320, 211));
 
-        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
-        jLabel11.setText("0");
+        jJumlahRental.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
+        jJumlahRental.setText("0");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -111,14 +153,14 @@ public class HomeView extends javax.swing.JPanel {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(240, 240, 240)
-                .addComponent(jLabel11))
+                .addComponent(jJumlahRental))
             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(46, 46, 46)
-                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jJumlahRental, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(90, 90, 90)
                 .addComponent(jLabel5))
         );
@@ -133,9 +175,9 @@ public class HomeView extends javax.swing.JPanel {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Jumlah Kostum Yang Tersedia");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("0");
+        jJumlahKostum.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
+        jJumlahKostum.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jJumlahKostum.setText("0");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -143,14 +185,14 @@ public class HomeView extends javax.swing.JPanel {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(247, 247, 247)
-                .addComponent(jLabel2))
+                .addComponent(jJumlahKostum))
             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(46, 46, 46)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jJumlahKostum, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(79, 79, 79)
                 .addComponent(jLabel1))
         );
@@ -158,7 +200,6 @@ public class HomeView extends javax.swing.JPanel {
         PanelUtama.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, -1, 211));
 
         jPanel5.setBackground(new java.awt.Color(255, 248, 248));
-        jPanel5.setBorder(null);
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -194,20 +235,20 @@ public class HomeView extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanelUtama;
+    private javax.swing.JLabel jJumlahKostum;
+    private javax.swing.JLabel jJumlahRental;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JLabel jTelat;
     // End of variables declaration//GEN-END:variables
 }
