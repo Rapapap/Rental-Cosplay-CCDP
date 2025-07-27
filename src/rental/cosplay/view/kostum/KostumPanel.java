@@ -16,6 +16,7 @@ import java.util.stream.Collectors;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import rental.cosplay.model.KostumModel;
 import rental.cosplay.controller.KostumController;
 import rental.cosplay.view.kostum.EditKostumView;
@@ -70,18 +71,18 @@ public class KostumPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanelCatalog = new javax.swing.JPanel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(254, 235, 237));
         setMinimumSize(new java.awt.Dimension(1040, 720));
         setPreferredSize(new java.awt.Dimension(1040, 720));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jHeaderCatalog.setBackground(new java.awt.Color(255, 255, 255));
-        jHeaderCatalog.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jHeaderCatalog.setBackground(new java.awt.Color(255, 248, 248));
+        jHeaderCatalog.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jHeaderCatalog.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelKatalog.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        jLabelKatalog.setFont(new java.awt.Font("Tw Cen MT", 0, 20)); // NOI18N
         jLabelKatalog.setText("Catalog Kostum");
-        jHeaderCatalog.add(jLabelKatalog, new org.netbeans.lib.awtextra.AbsoluteConstraints(267, 15, 322, 61));
+        jHeaderCatalog.add(jLabelKatalog, new org.netbeans.lib.awtextra.AbsoluteConstraints(105, 10, 310, 30));
 
         jSearchKatalog.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jSearchKatalog.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -136,17 +137,18 @@ public class KostumPanel extends javax.swing.JPanel {
         add(jHeaderCatalog, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 950, 110));
 
         jPanelCatalog.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelCatalog.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanelCatalog.setPreferredSize(new java.awt.Dimension(948, 1000));
 
         javax.swing.GroupLayout jPanelCatalogLayout = new javax.swing.GroupLayout(jPanelCatalog);
         jPanelCatalog.setLayout(jPanelCatalogLayout);
         jPanelCatalogLayout.setHorizontalGroup(
             jPanelCatalogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 948, Short.MAX_VALUE)
+            .addGap(0, 944, Short.MAX_VALUE)
         );
         jPanelCatalogLayout.setVerticalGroup(
             jPanelCatalogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1000, Short.MAX_VALUE)
+            .addGap(0, 996, Short.MAX_VALUE)
         );
 
         jScrollPane1.setViewportView(jPanelCatalog);
@@ -288,13 +290,18 @@ public class KostumPanel extends javax.swing.JPanel {
                 JLabel labelId = new JLabel("ID: " + kostum.getId_kostum());
                 JLabel titleNama = new JLabel("Nama Kostum");
                 JLabel labelNama = new JLabel(kostum.getNama());
-                JLabel titleUkuran = new JLabel("Ukuran Kostum");
+                JLabel titleUkuran = new JLabel("Ukuran");
                 JLabel labelUkuran = new JLabel(kostum.getUkuran());
                 JLabel titleHarga = new JLabel("Harga");
                 JLabel labelHarga = new JLabel("Rp " + String.valueOf(kostum.getHarga()));
-                /*JLabel titleStatus = new JLabel("Status");
-                JLabel labelStatus = new JLabel(String.valueOf(kostum.getStok()));*/
+                JLabel titleDeskripsi = new JLabel("Deskripsi");
+                JTextArea labelDeskripsi = new JTextArea(kostum.getDeskripsi());
 
+                labelDeskripsi.setEditable(false);
+                labelDeskripsi.setRows(4);
+                labelDeskripsi.setColumns(20);
+                labelDeskripsi.setLineWrap(true);
+                
                 RoundedPanel buttonEdit = new RoundedPanel(12, Color.white);
                 JLabel editLabel = new JLabel("Edit Kostum");
                 editLabel.setForeground(Color.WHITE);
@@ -349,8 +356,10 @@ public class KostumPanel extends javax.swing.JPanel {
                 cardKostum.add(labelNama, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
                 cardKostum.add(titleUkuran, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
                 cardKostum.add(labelUkuran, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
-                cardKostum.add(titleHarga, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, -1));
-                cardKostum.add(labelHarga, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, -1, -1));
+                cardKostum.add(titleHarga, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
+                cardKostum.add(labelHarga, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
+                cardKostum.add(titleDeskripsi, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, -1));
+                cardKostum.add(labelDeskripsi, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, -1, -1));
                 cardKostum.add(buttonEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, -1, -1));
                 cardKostum.add(buttonHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, -1, -1));
 

@@ -5,12 +5,14 @@ public class KostumModel {
     private String nama;
     private String ukuran;
     private int harga;
+    private String deskripsi;
     
-    public KostumModel(String id_kostum, String nama, String ukuran, int harga){
+    public KostumModel(String id_kostum, String nama, String ukuran, int harga, String deskripsi){
         this.id_kostum = id_kostum;
         this.nama = nama;
         this.ukuran = ukuran;
         this.harga = harga;
+        this.deskripsi = deskripsi;
     }
 
 
@@ -44,6 +46,14 @@ public class KostumModel {
 
     public void setHarga(int harga) {
         this.harga = harga;
+    }
+
+    public String getDeskripsi() {
+        return deskripsi;
+    }
+
+    public void setDeskripsi(String deskripsi) {
+        this.deskripsi = deskripsi;
     }
     
 }

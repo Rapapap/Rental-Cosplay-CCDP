@@ -52,6 +52,7 @@ public class EditKostumView extends javax.swing.JFrame {
         jMainKostum = new javax.swing.JPanel();
         jHeaderKostum = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jBodyKostum = new javax.swing.JPanel();
         LabelNamaKostum = new javax.swing.JLabel();
         jNamaKostum = new javax.swing.JTextField();
@@ -60,40 +61,34 @@ public class EditKostumView extends javax.swing.JFrame {
         LabelDeskripsiKostum = new javax.swing.JLabel();
         ButtonTambahKostum = new javax.swing.JButton();
         jUkuranKostum = new javax.swing.JTextField();
+        LabelDeskripsi = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jDeskripsi = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(530, 660));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jMainKostum.setBackground(new java.awt.Color(255, 255, 255));
+        jMainKostum.setBackground(new java.awt.Color(254, 235, 237));
+        jMainKostum.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jHeaderKostum.setBackground(new java.awt.Color(255, 255, 255));
-        jHeaderKostum.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jHeaderKostum.setBackground(new java.awt.Color(255, 248, 248));
+        jHeaderKostum.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jHeaderKostum.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tw Cen MT", 0, 20)); // NOI18N
         jLabel1.setText("Edit Data Kostum");
+        jHeaderKostum.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, -5, 186, 75));
 
-        javax.swing.GroupLayout jHeaderKostumLayout = new javax.swing.GroupLayout(jHeaderKostum);
-        jHeaderKostum.setLayout(jHeaderKostumLayout);
-        jHeaderKostumLayout.setHorizontalGroup(
-            jHeaderKostumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jHeaderKostumLayout.createSequentialGroup()
-                .addContainerGap(114, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42))
-        );
-        jHeaderKostumLayout.setVerticalGroup(
-            jHeaderKostumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jHeaderKostumLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rental/cosplay/img/LogoKecil.png"))); // NOI18N
+        jHeaderKostum.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 230, 100));
 
-        jBodyKostum.setBackground(new java.awt.Color(255, 255, 255));
-        jBodyKostum.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jMainKostum.add(jHeaderKostum, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 414, -1));
 
-        LabelNamaKostum.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jBodyKostum.setBackground(new java.awt.Color(255, 248, 248));
+        jBodyKostum.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        LabelNamaKostum.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         LabelNamaKostum.setText("Nama Kostum");
 
         jNamaKostum.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
@@ -104,7 +99,7 @@ public class EditKostumView extends javax.swing.JFrame {
             }
         });
 
-        LabelHargaKostum.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        LabelHargaKostum.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         LabelHargaKostum.setText("Harga Kostum");
 
         jHargaKostum.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
@@ -115,12 +110,13 @@ public class EditKostumView extends javax.swing.JFrame {
             }
         });
 
-        LabelDeskripsiKostum.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        LabelDeskripsiKostum.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         LabelDeskripsiKostum.setText("Ukuran Kostum");
 
-        ButtonTambahKostum.setBackground(new java.awt.Color(204, 255, 204));
-        ButtonTambahKostum.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        ButtonTambahKostum.setBackground(new java.awt.Color(255, 204, 204));
+        ButtonTambahKostum.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         ButtonTambahKostum.setText("EDIT DATA");
+        ButtonTambahKostum.setPreferredSize(new java.awt.Dimension(145, 29));
         ButtonTambahKostum.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ButtonTambahKostumMouseClicked(evt);
@@ -140,6 +136,15 @@ public class EditKostumView extends javax.swing.JFrame {
             }
         });
 
+        LabelDeskripsi.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        LabelDeskripsi.setText("Deskripsi Kostum");
+
+        jDeskripsi.setColumns(20);
+        jDeskripsi.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jDeskripsi.setLineWrap(true);
+        jDeskripsi.setRows(5);
+        jScrollPane1.setViewportView(jDeskripsi);
+
         javax.swing.GroupLayout jBodyKostumLayout = new javax.swing.GroupLayout(jBodyKostum);
         jBodyKostum.setLayout(jBodyKostumLayout);
         jBodyKostumLayout.setHorizontalGroup(
@@ -148,17 +153,24 @@ public class EditKostumView extends javax.swing.JFrame {
                 .addGroup(jBodyKostumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jBodyKostumLayout.createSequentialGroup()
                         .addGap(53, 53, 53)
-                        .addGroup(jBodyKostumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jHargaKostum, javax.swing.GroupLayout.DEFAULT_SIZE, 340, Short.MAX_VALUE)
-                            .addComponent(LabelHargaKostum, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jBodyKostumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(LabelNamaKostum, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jNamaKostum)
-                            .addComponent(LabelDeskripsiKostum, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jUkuranKostum, javax.swing.GroupLayout.DEFAULT_SIZE, 340, Short.MAX_VALUE)))
+                            .addComponent(jNamaKostum, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(LabelDeskripsi, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jBodyKostumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jBodyKostumLayout.createSequentialGroup()
+                                    .addGroup(jBodyKostumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(LabelHargaKostum, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+                                        .addComponent(jHargaKostum, javax.swing.GroupLayout.Alignment.LEADING))
+                                    .addGap(18, 18, 18)
+                                    .addGroup(jBodyKostumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(LabelDeskripsiKostum, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jUkuranKostum, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(jBodyKostumLayout.createSequentialGroup()
-                        .addGap(118, 118, 118)
+                        .addGap(119, 119, 119)
                         .addComponent(ButtonTambahKostum, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
         jBodyKostumLayout.setVerticalGroup(
             jBodyKostumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,43 +180,25 @@ public class EditKostumView extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jNamaKostum, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(LabelHargaKostum)
+                .addGroup(jBodyKostumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LabelHargaKostum, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LabelDeskripsiKostum, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jHargaKostum, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jBodyKostumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jHargaKostum, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jUkuranKostum, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(LabelDeskripsiKostum)
+                .addComponent(LabelDeskripsi)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jUkuranKostum, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(59, 59, 59)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addComponent(ButtonTambahKostum, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(129, Short.MAX_VALUE))
+                .addGap(40, 40, 40))
         );
 
-        javax.swing.GroupLayout jMainKostumLayout = new javax.swing.GroupLayout(jMainKostum);
-        jMainKostum.setLayout(jMainKostumLayout);
-        jMainKostumLayout.setHorizontalGroup(
-            jMainKostumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jMainKostumLayout.createSequentialGroup()
-                .addGroup(jMainKostumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jMainKostumLayout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(jHeaderKostum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jMainKostumLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jBodyKostum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(26, Short.MAX_VALUE))
-        );
-        jMainKostumLayout.setVerticalGroup(
-            jMainKostumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jMainKostumLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jHeaderKostum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                .addComponent(jBodyKostum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        jMainKostum.add(jBodyKostum, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
 
-        getContentPane().add(jMainKostum, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 660));
+        getContentPane().add(jMainKostum, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 660));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -231,8 +225,9 @@ public class EditKostumView extends javax.swing.JFrame {
         String ukuran = jUkuranKostum.getText().trim();
         String hargaText = jHargaKostum.getText().trim();
         int harga = Integer.parseInt(hargaText);
+        String deskripsi = jDeskripsi.getText().trim();
         
-        kostumModel = new KostumModel(kostumModel.getId_kostum(), nama, ukuran, harga);
+        kostumModel = new KostumModel(kostumModel.getId_kostum(), nama, ukuran, harga, deskripsi);
         boolean isUpdated = kostumController.updateKostum(kostumModel);
         
         if (isUpdated) {
@@ -248,20 +243,25 @@ public class EditKostumView extends javax.swing.JFrame {
         jNamaKostum.setText(kostum.getNama());
         jUkuranKostum.setText(kostum.getUkuran());
         jHargaKostum.setText(String.valueOf(kostum.getHarga()));
+        jDeskripsi.setText(kostum.getDeskripsi());
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtonTambahKostum;
+    private javax.swing.JLabel LabelDeskripsi;
     private javax.swing.JLabel LabelDeskripsiKostum;
     private javax.swing.JLabel LabelHargaKostum;
     private javax.swing.JLabel LabelNamaKostum;
     private javax.swing.JPanel jBodyKostum;
+    private javax.swing.JTextArea jDeskripsi;
     private javax.swing.JTextField jHargaKostum;
     private javax.swing.JPanel jHeaderKostum;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jMainKostum;
     private javax.swing.JTextField jNamaKostum;
     private javax.swing.JOptionPane jOptionPane1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jUkuranKostum;
     // End of variables declaration//GEN-END:variables
 }
