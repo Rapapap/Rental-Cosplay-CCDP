@@ -36,7 +36,7 @@ public class EditKostumView extends javax.swing.JFrame {
         setResizable(false);
         
         loadData(kostumModel);
-        
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }
 
     /**

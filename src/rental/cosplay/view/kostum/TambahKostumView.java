@@ -28,6 +28,8 @@ public class TambahKostumView extends javax.swing.JFrame {
 
         setExtendedState(JFrame.MAXIMIZED_HORIZ);
         setResizable(false);
+        
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }
 
     /**

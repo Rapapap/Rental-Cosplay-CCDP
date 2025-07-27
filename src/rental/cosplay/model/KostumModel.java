@@ -6,7 +6,7 @@ public class KostumModel {
     private String ukuran;
     private int harga;
     
-    public KostumModel(String id_kostum, String nama, String size, int harga){
+    public KostumModel(String id_kostum, String nama, String ukuran, int harga){
         this.id_kostum = id_kostum;
         this.nama = nama;
         this.ukuran = ukuran;
