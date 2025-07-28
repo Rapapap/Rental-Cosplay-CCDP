@@ -19,6 +19,7 @@ import rental.cosplay.controller.FormController;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 import rental.cosplay.DatabaseConnection;
 import rental.cosplay.model.KostumModel;
@@ -207,12 +208,22 @@ public final class FormInformasiView extends javax.swing.JPanel {
         String nomor = jTextFieldNomor.getText();
         String alamat = jTextAreaAlamat.getText();
         
+        // validasi untuk inputan nya
+        if (nama.isEmpty() || nomor.isEmpty() || alamat.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Data Harap Diisi Semua...");
+            return;
+        }
+        
         //ambil durasi pinjam dari combobox
         int durasi = Integer.parseInt((String) jComboBox1.getSelectedItem());
         
         //ngambil informasi kostum yang di pilih nya
-        KostumModel selectedKostum = (KostumModel) jComboBoxKostum.getSelectedItem();
-        String kostum = selectedKostum.getId_kostum();
+        int selectedIndex = jComboBoxKostum.getSelectedIndex();
+        if (selectedIndex <0 || selectedIndex >= listKostum.size()){ // ini supaya kostum nya dipilih aja
+            JOptionPane.showMessageDialog(this, "Silahkan pilih dengan benar..");
+        }
+        KostumModel selectedKostum = listKostum.get(selectedIndex);
+        
         int harga = selectedKostum.getHarga();
         
         //ngambil data radio button nya 
@@ -224,20 +235,29 @@ public final class FormInformasiView extends javax.swing.JPanel {
         } else {
             ukuran = "XXL";
         }
+ 
+        if (selectedIndex >=0 && listKostum != null){
+            String kostum = selectedKostum.getId_kostum();
+            
+            // simpan ke database
+            RentalModel form = new RentalModel();
+            form.setKostum(kostum);
+            form.setNama(nama);
+            form.setNomorTelp(nomor);
+            form.setAlamat(alamat);
+            form.setKostum(kostum);
+            form.setUkuran(ukuran);
+            form.setDurasiPinjam(durasi);
+            
+            FormController controller = new FormController();
+            boolean sukses = controller.tambahUser(form); // sukses ngga nya diambil dari sini kalo sukses berari True dan kalo tidak berarti False
         
-        // kirim ke model
-        RentalModel from = new RentalModel();
-        from.setNama(nama);
-        from.setNomorTelp(nomor);
-        from.setAlamat(alamat);
-        from.setKostum(kostum);
-        from.setUkuran(ukuran);
-        from.setDurasiPinjam(durasi);
-        
-        FormController controller = new FormController();
-        controller.tambahUser(from);
-        
-        
+            if (sukses){
+                JOptionPane.showMessageDialog(this, "Data Berhasil Disimpan.");
+            } else {
+                JOptionPane.showMessageDialog(this, "Gagal Menyimpan Data..");
+            }
+        }
         
     }//GEN-LAST:event_jButtonSimpanDataActionPerformed
 

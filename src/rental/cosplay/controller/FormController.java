@@ -49,14 +49,14 @@ public class FormController {
         return null;
     }
     
-    public boolean tambahUser(RentalModel form){
+    public boolean tambahUser(rental.cosplay.model.RentalModel form){
         Connection connection = dbConnection.getConnection();
         boolean isAdded = false;
 
         String sql = "INSERT INTO rental (id_rental, nama, nomor_telp, alamat, id_kostum, durasi_pinjam, tgl_pinjam, tgl_kembali, status, total_biaya) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try{
             
-            String idBaru = genereteUniqueId(connection);
+           String idBaru = genereteUniqueId(connection);
             
            //ambil tanggal hari ini
            LocalDate tglPinjam = LocalDate.now();
@@ -69,6 +69,13 @@ public class FormController {
            Date sqlTglPinjam = Date.valueOf(tglPinjam);
            Date sqlTglKembali = Date.valueOf(tglKembali);
            
+           // status awal
+           String status = "Belum Kembali";
+           
+           // hitung total biaya 
+           int totalBiaya = durasi * 100000;
+           
+           
            PreparedStatement preparedStatement = connection.prepareStatement(sql);
            preparedStatement.setString(1, idBaru);
            preparedStatement.setString(2, form.getNama());
@@ -78,14 +85,19 @@ public class FormController {
            preparedStatement.setInt(6, form.getDurasiPinjam());
            preparedStatement.setDate(7, sqlTglPinjam);
            preparedStatement.setDate(8, sqlTglKembali);
+           preparedStatement.setString(9, status);
+           preparedStatement.setInt(10, totalBiaya);
+           
+           int rowInserted = preparedStatement.executeUpdate();
+           isAdded = rowInserted > 0;
+           
+           preparedStatement.close();
+           connection.close();
+           
         } catch (SQLException e){
             e.printStackTrace();
         }
 
         return isAdded;
-    }
-
-    public void tambahUser(rental.cosplay.model.RentalModel from) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
