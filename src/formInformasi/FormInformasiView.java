@@ -24,6 +24,8 @@ import javax.swing.JOptionPane;
 import rental.cosplay.DatabaseConnection;
 import rental.cosplay.model.KostumModel;
 
+import rental.cosplay.components.ShadowPanel;
+
 /**
  *
  * @author LENOVO LOOQ
@@ -97,16 +99,19 @@ public final class FormInformasiView extends javax.swing.JPanel {
         jTextFieldNomor = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextAreaAlamat = new javax.swing.JTextArea();
+        jLabel10 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1040, 800));
         setLayout(new java.awt.CardLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 153, 236));
+        jPanel1.setBackground(new java.awt.Color(248, 187, 208));
         jPanel1.setPreferredSize(new java.awt.Dimension(1040, 800));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel3.setBackground(new java.awt.Color(254, 235, 237));
         jPanel3.setPreferredSize(new java.awt.Dimension(1020, 590));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -126,9 +131,10 @@ public final class FormInformasiView extends javax.swing.JPanel {
         jLabel5.setText("Alamat");
         jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, -1, -1));
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jButton1.setText("Lihat Detail");
         jButton1.setPreferredSize(new java.awt.Dimension(100, 30));
-        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 365, -1, -1));
+        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 365, 110, -1));
 
         jButtonSimpanData.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButtonSimpanData.setText("Simpan Data");
@@ -141,12 +147,14 @@ public final class FormInformasiView extends javax.swing.JPanel {
         });
         jPanel3.add(jButtonSimpanData, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 520, -1, -1));
 
+        jRadioButton1.setBackground(new java.awt.Color(254, 235, 237));
         UkuranKostum.add(jRadioButton1);
         jRadioButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jRadioButton1.setText("L");
         jRadioButton1.setPreferredSize(new java.awt.Dimension(50, 20));
         jPanel3.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 460, -1, -1));
 
+        jRadioButton2.setBackground(new java.awt.Color(254, 235, 237));
         UkuranKostum.add(jRadioButton2);
         jRadioButton2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jRadioButton2.setText("XL");
@@ -158,6 +166,7 @@ public final class FormInformasiView extends javax.swing.JPanel {
         });
         jPanel3.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 460, -1, -1));
 
+        jRadioButton3.setBackground(new java.awt.Color(254, 235, 237));
         UkuranKostum.add(jRadioButton3);
         jRadioButton3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jRadioButton3.setText("XXL");
@@ -213,15 +222,21 @@ public final class FormInformasiView extends javax.swing.JPanel {
 
         jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, -1, -1));
 
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rental/cosplay/img/Login.jpg"))); // NOI18N
+        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 120, -1, -1));
+
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, 670));
 
-        jPanel4.setBackground(new java.awt.Color(240, 191, 237));
+        jPanel4.setBackground(new java.awt.Color(254, 235, 237));
         jPanel4.setPreferredSize(new java.awt.Dimension(1020, 100));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("Form Informasi Rental");
-        jPanel4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 35, -1, -1));
+        jPanel4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 35, -1, -1));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/formInformasi/LogoKecil.png"))); // NOI18N
+        jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, -15, 270, 140));
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
@@ -309,10 +324,12 @@ public final class FormInformasiView extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBoxKostum;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;

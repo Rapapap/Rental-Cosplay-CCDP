@@ -31,6 +31,7 @@ public class DetailKostum extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -51,19 +52,24 @@ public class DetailKostum extends javax.swing.JPanel {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(248, 187, 208));
         jPanel1.setPreferredSize(new java.awt.Dimension(600, 600));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel2.setBackground(new java.awt.Color(254, 235, 237));
         jPanel2.setPreferredSize(new java.awt.Dimension(580, 100));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("Detail Kostum");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 35, -1, -1));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 60, 150, -1));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rental/cosplay/img/LogoKecil.png"))); // NOI18N
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, 90));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
+        jPanel3.setBackground(new java.awt.Color(254, 235, 237));
         jPanel3.setPreferredSize(new java.awt.Dimension(580, 470));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -75,12 +81,13 @@ public class DetailKostum extends javax.swing.JPanel {
         jLabel3.setText("Rp. 350.000");
         jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, -1));
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel4.setText("Keterangan Ukuran");
         jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, -1, -1));
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel7.setText("Ukuran Kostum : Xl, XXL, L");
-        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, -1, -1));
+        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 305, -1, -1));
 
         jScrollPane1.setPreferredSize(new java.awt.Dimension(500, 96));
 
@@ -91,6 +98,7 @@ public class DetailKostum extends javax.swing.JPanel {
 
         jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, 110));
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jButton1.setText("Back");
         jButton1.setPreferredSize(new java.awt.Dimension(300, 40));
         jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 380, -1, -1));
@@ -120,6 +128,7 @@ public class DetailKostum extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

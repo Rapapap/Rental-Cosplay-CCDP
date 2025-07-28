@@ -53,7 +53,7 @@ public class FormController {
         Connection connection = dbConnection.getConnection();
         boolean isAdded = false;
 
-        String sql = "INSERT INTO rental (id_rental, nama, nomor_telp, alamat, id_kostum, durasi_pinjam, tgl_pinjam, tgl_kembali, status, total_biaya) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO rental (id_rental, nama, nomor_telp, alamat, id_kostum, durasi_pinjam, tgl_pinjam, tgl_kembali, status, total_biaya, ukuran_kostum) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try{
             
            String idBaru = genereteUniqueId(connection);
@@ -87,6 +87,7 @@ public class FormController {
            preparedStatement.setDate(8, sqlTglKembali);
            preparedStatement.setString(9, status);
            preparedStatement.setInt(10, totalBiaya);
+           preparedStatement.setString(11, form.getUkuran());
            
            int rowInserted = preparedStatement.executeUpdate();
            isAdded = rowInserted > 0;

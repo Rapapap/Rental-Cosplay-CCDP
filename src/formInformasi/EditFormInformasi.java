@@ -32,6 +32,7 @@ public class EditFormInformasi extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jTextFieldNama = new javax.swing.JTextField();
@@ -56,19 +57,24 @@ public class EditFormInformasi extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(530, 660));
 
-        jPanel1.setBackground(new java.awt.Color(0, 102, 102));
-        jPanel1.setPreferredSize(new java.awt.Dimension(530, 530));
+        jPanel1.setBackground(new java.awt.Color(248, 187, 208));
+        jPanel1.setPreferredSize(new java.awt.Dimension(530, 800));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel2.setBackground(new java.awt.Color(254, 235, 237));
         jPanel2.setPreferredSize(new java.awt.Dimension(510, 100));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("Edit Form Rental");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 35, -1, -1));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 60, -1, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rental/cosplay/img/LogoKecil.png"))); // NOI18N
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 100));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
+        jPanel3.setBackground(new java.awt.Color(254, 235, 237));
         jPanel3.setPreferredSize(new java.awt.Dimension(510, 530));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -100,14 +106,17 @@ public class EditFormInformasi extends javax.swing.JPanel {
 
         jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 430, -1));
 
+        jComboBoxKostum.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jComboBoxKostum.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kostum1", "Kostum2", "Kostum3" }));
         jComboBoxKostum.setPreferredSize(new java.awt.Dimension(300, 40));
         jPanel3.add(jComboBoxKostum, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, -1, -1));
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jButton1.setText("Lihat Detail");
         jButton1.setPreferredSize(new java.awt.Dimension(100, 30));
-        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 365, -1, -1));
+        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(355, 365, 110, -1));
 
+        jButtonSimpanData.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jButtonSimpanData.setText("Simpan Data");
         jButtonSimpanData.setPreferredSize(new java.awt.Dimension(300, 40));
         jButtonSimpanData.addActionListener(new java.awt.event.ActionListener() {
@@ -125,11 +134,12 @@ public class EditFormInformasi extends javax.swing.JPanel {
         jLabel8.setText("Durasi Pinjam");
         jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, -1, -1));
 
+        jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3" }));
         jComboBox1.setPreferredSize(new java.awt.Dimension(50, 40));
         jPanel3.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 450, -1, -1));
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel9.setText("Hari");
         jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 460, -1, -1));
 
@@ -137,7 +147,9 @@ public class EditFormInformasi extends javax.swing.JPanel {
         jLabel10.setText("Ukuran Kostum");
         jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 410, -1, -1));
 
+        jRadioButton4.setBackground(new java.awt.Color(254, 235, 237));
         UkuranKostum.add(jRadioButton4);
+        jRadioButton4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jRadioButton4.setText("L");
         jRadioButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,11 +158,15 @@ public class EditFormInformasi extends javax.swing.JPanel {
         });
         jPanel3.add(jRadioButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 450, -1, -1));
 
+        jRadioButton1.setBackground(new java.awt.Color(254, 235, 237));
         UkuranKostum.add(jRadioButton1);
+        jRadioButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jRadioButton1.setText("XL");
         jPanel3.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 450, -1, -1));
 
+        jRadioButton2.setBackground(new java.awt.Color(254, 235, 237));
         UkuranKostum.add(jRadioButton2);
+        jRadioButton2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jRadioButton2.setText("XXL");
         jPanel3.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 450, -1, -1));
 
@@ -185,6 +201,7 @@ public class EditFormInformasi extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> jComboBoxKostum;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
