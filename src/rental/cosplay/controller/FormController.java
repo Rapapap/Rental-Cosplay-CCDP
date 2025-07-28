@@ -73,7 +73,7 @@ public class FormController {
            String status = "Belum Kembali";
            
            // hitung total biaya 
-           int totalBiaya = durasi * 100000;
+           int totalBiaya = durasi * form.getHarga();
            
            
            PreparedStatement preparedStatement = connection.prepareStatement(sql);
