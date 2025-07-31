@@ -79,9 +79,9 @@ public class RentalDataView extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jPanel6 = new ShadowPanel(30,  Color.decode("#F8BBD0"));
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jTextFieldInputEdit = new javax.swing.JTextField();
         jLabelDelete = new javax.swing.JLabel();
+        jLabelEdit = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TableData = new javax.swing.JTable();
 
@@ -121,18 +121,16 @@ public class RentalDataView extends javax.swing.JPanel {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel6.setBackground(new java.awt.Color(255, 248, 248));
+        jPanel6.setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("Data Rental Pelanggan");
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rental/cosplay/img/edit.png"))); // NOI18N
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel2MouseClicked(evt);
-            }
-        });
+        jPanel6.add(jLabel1);
+        jLabel1.setBounds(40, 20, 242, 29);
 
         jTextFieldInputEdit.setPreferredSize(new java.awt.Dimension(200, 25));
+        jPanel6.add(jTextFieldInputEdit);
+        jTextFieldInputEdit.setBounds(620, 20, 200, 25);
 
         jLabelDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rental/cosplay/img/delete.png"))); // NOI18N
         jLabelDelete.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -140,34 +138,17 @@ public class RentalDataView extends javax.swing.JPanel {
                 jLabelDeleteMouseClicked(evt);
             }
         });
+        jPanel6.add(jLabelDelete);
+        jLabelDelete.setBounds(875, 25, 24, 20);
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 363, Short.MAX_VALUE)
-                .addComponent(jTextFieldInputEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addComponent(jLabelDelete)
-                .addGap(61, 61, 61))
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabelDelete)
-                    .addComponent(jLabel2)
-                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel1)
-                        .addComponent(jTextFieldInputEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(41, 41, 41))
-        );
+        jLabelEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rental/cosplay/img/edit.png"))); // NOI18N
+        jLabelEdit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelEditMouseClicked(evt);
+            }
+        });
+        jPanel6.add(jLabelEdit);
+        jLabelEdit.setBounds(838, 20, 24, 30);
 
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 990, 100));
 
@@ -199,7 +180,7 @@ public class RentalDataView extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(TableData);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 990, 550));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 990, 550));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -218,7 +199,33 @@ public class RentalDataView extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabelDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelDeleteMouseClicked
-        // TODO add your handling code here:
+//        String nama = jTextFieldInputEdit.getText().trim(); // ngambil nama dari textfield nya
+//        
+//        if (nama.isEmpty()){
+//            JOptionPane.showMessageDialog(this, "Masukan Nama Data yang Akan Dihapus.");
+//            return;
+//        }
+//        
+//        FormController controller = new FormController();
+//       
+//       boolean ada = controller.cekData(nama);
+//        if (!ada){
+//            JOptionPane.showMessageDialog(this, "Data dengan nama" + nama + "Tidak Ditemukan...");
+//            return;
+//        }
+//        
+//        // kalo nama nya ada di db bakalan jalanin ini
+//        int konfir = JOptionPane.showConfirmDialog(this, "Anda Yakin Ingin Menghapus Data Nama " + nama + " ? ", "Konfirmasi Hapus", JOptionPane.YES_NO_OPTION);
+//        if ( konfir == JOptionPane.YES_OPTION){
+//            boolean berhasil = controller.hapusData(nama);
+//            
+//            if (berhasil){
+//                JOptionPane.showMessageDialog(this, "Data Berhasil Dihapus");
+//            } else {
+//                JOptionPane.showMessageDialog(this, "Data Gagal Dihapus...");
+//            }
+//        }
+//        
         String nama = jTextFieldInputEdit.getText().trim();
         
         if (nama.isEmpty()){
@@ -237,24 +244,23 @@ public class RentalDataView extends javax.swing.JPanel {
             } else {
                 JOptionPane.showMessageDialog(this, "Data Gagal Untuk Dihapus...");
             }
-            
         }
     }//GEN-LAST:event_jLabelDeleteMouseClicked
 
-    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+    private void jLabelEditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelEditMouseClicked
         // TODO add your handling code here:
         
             
-    }//GEN-LAST:event_jLabel2MouseClicked
+    }//GEN-LAST:event_jLabelEditMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TableData;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabelDelete;
+    private javax.swing.JLabel jLabelEdit;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;

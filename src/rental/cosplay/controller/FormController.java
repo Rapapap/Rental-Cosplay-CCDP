@@ -91,10 +91,7 @@ public class FormController {
            
            int rowInserted = preparedStatement.executeUpdate();
            isAdded = rowInserted > 0;
-           
-           preparedStatement.close();
-           connection.close();
-           
+
         } catch (SQLException e){
             e.printStackTrace();
         }
@@ -102,8 +99,28 @@ public class FormController {
         return isAdded;
     }
     
+//    public boolean cekData(String nama){
+//        
+//        boolean ada = false;
+//        
+//        try (Connection conn = dbConnection.getConnection();) {
+//            String sql = "SELECT COUNT(*) FROM rental WHERE nama = ?";
+//            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+//            preparedStatement.setString(1, nama);
+//            ResultSet result = preparedStatement.executeQuery();
+//            if (result.next() && result.getInt(1) >  0){
+//                ada = true;
+//            }
+//
+//        } catch (SQLException e){
+//            e.printStackTrace();
+//        }
+//        return ada;
+//    }
+    
     public boolean hapusData(String nama){
-        Connection conn = dbConnection.getConnection();
+        
+         Connection conn = dbConnection.getConnection();
         boolean isDeleted = false;
         
         String sql = "DELETE FROM rental WHERE nama = ?";
@@ -123,6 +140,4 @@ public class FormController {
         
         return isDeleted;
     }
-    
-    
 }

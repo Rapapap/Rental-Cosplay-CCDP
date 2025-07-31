@@ -65,10 +65,6 @@ public class RentalController {
                 model.setKostum(rs.getString("id_kostum"));
                 model.setDurasiPinjam(rs.getInt("durasi_pinjam"));
                 model.setUkuran(rs.getString("ukuran_kostum"));
-               
-                rs.close();
-                preparedStatement.close();
-                conn.close();
             } 
                  
              } catch (Exception e) {
