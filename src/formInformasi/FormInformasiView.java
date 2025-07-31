@@ -139,13 +139,13 @@ public final class FormInformasiView extends javax.swing.JPanel {
         jButtonSimpanData.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButtonSimpanData.setText("Simpan Data");
         jButtonSimpanData.setFocusable(false);
-        jButtonSimpanData.setPreferredSize(new java.awt.Dimension(300, 40));
+        jButtonSimpanData.setPreferredSize(new java.awt.Dimension(430, 40));
         jButtonSimpanData.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSimpanDataActionPerformed(evt);
             }
         });
-        jPanel3.add(jButtonSimpanData, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 520, -1, -1));
+        jPanel3.add(jButtonSimpanData, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 520, -1, -1));
 
         jRadioButton1.setBackground(new java.awt.Color(254, 235, 237));
         UkuranKostum.add(jRadioButton1);

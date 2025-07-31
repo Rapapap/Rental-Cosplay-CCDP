@@ -126,6 +126,11 @@ public class MainView extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Katalog");
+        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel7MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout KatalogButtonLayout = new javax.swing.GroupLayout(KatalogButton);
         KatalogButton.setLayout(KatalogButtonLayout);
@@ -443,6 +448,10 @@ public class MainView extends javax.swing.JFrame {
     private void RentalDataKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RentalDataKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_RentalDataKeyPressed
+
+    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel7MouseClicked
 
     /**
      * @param args the command line arguments

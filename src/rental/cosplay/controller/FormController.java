@@ -101,4 +101,28 @@ public class FormController {
 
         return isAdded;
     }
+    
+    public boolean hapusData(String nama){
+        Connection conn = dbConnection.getConnection();
+        boolean isDeleted = false;
+        
+        String sql = "DELETE FROM rental WHERE nama = ?";
+        try{
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            preparedStatement.setString(1, nama);
+            
+            int rowAffected = preparedStatement.executeUpdate();
+            isDeleted = rowAffected > 0;
+            
+            preparedStatement.close();
+            conn.close();
+            
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+        
+        return isDeleted;
+    }
+    
+    
 }

@@ -39,7 +39,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="0" pref="720" max="32767" attributes="0"/>
+          <Component id="jPanel1" alignment="0" pref="848" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -261,7 +261,7 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Simpan Data"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[300, 40]"/>
+                  <Dimension value="[430, 40]"/>
                 </Property>
               </Properties>
               <Events>
@@ -269,7 +269,7 @@
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="110" y="520" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="40" y="520" width="-1" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>

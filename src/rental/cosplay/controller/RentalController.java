@@ -13,7 +13,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import rental.cosplay.DatabaseConnection;
-
 /**
  *
  * @author Hakim
@@ -48,4 +47,33 @@ public class RentalController {
 
         return rental;
     }
+     
+     public RentalModel getRentalNama(String nama){
+         RentalModel model = null;
+         try{
+            Connection conn = dbConnection.getConnection();
+            String sql = "SELECT * FROM rental WHERE nama=?";
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            preparedStatement.setString(1, nama);
+            ResultSet rs = preparedStatement.executeQuery();
+            
+            if (rs.next()){
+                model.setIdRental(rs.getString("id_rental"));
+                model.setNama(rs.getString("nama"));
+                model.setNomorTelp(rs.getString("nomor_telp"));
+                model.setAlamat(rs.getString("alamat"));
+                model.setKostum(rs.getString("id_kostum"));
+                model.setDurasiPinjam(rs.getInt("durasi_pinjam"));
+                model.setUkuran(rs.getString("ukuran_kostum"));
+               
+                rs.close();
+                preparedStatement.close();
+                conn.close();
+            } 
+                 
+             } catch (Exception e) {
+                 e.printStackTrace();
+        }
+         return model;
+     }
 }
