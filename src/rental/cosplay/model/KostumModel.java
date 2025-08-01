@@ -58,6 +58,6 @@ public class KostumModel {
     
     @Override
     public String toString(){
-        return nama; // agar yang di tampilkan di dropdown tetap nama
+        return this.getNama(); // agar yang di tampilkan di dropdown tetap nama
     }
 }

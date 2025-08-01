@@ -5,9 +5,14 @@
  */
 package formInformasi;
 
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
 import rental.cosplay.DatabaseConnection;
 import rental.cosplay.model.RentalModel;
 import rental.cosplay.controller.FormController;
+import rental.cosplay.controller.KostumController;
+import rental.cosplay.model.KostumModel;
 
 
 /**
@@ -18,20 +23,65 @@ public class FormEditView extends javax.swing.JFrame {
     DatabaseConnection dbConnection;
     RentalModel rentalModel;
     FormController formController;
+    private List<KostumModel> listKostum = new ArrayList<>();
+    private KostumController kostumController = new KostumController();
+    // Jangan pakai jComboBoxKostum dari designer GUI nya
+    private javax.swing.JComboBox<KostumModel> comboKostumManual; // ini ngerubah dropdown nya 
 
     /**
      * Creates new form FormEditView
      */
-    public FormEditView(RentalModel rentalModel) {
+    public FormEditView(String idRental) {
         initComponents();
-        isiDataForm(rentalModel);
+        this.formController = new FormController();
+        rentalModel = formController.getDataById(idRental);
+        
+        if (rentalModel == null) {
+            JOptionPane.showMessageDialog(this, "Rental dengan ID tersebut tidak ditemukan....");
+            return;
+        }
+        
+        isiDataForm(rentalModel); // isi semua field di form
+        tampilDataKostum(); // tampil data kostum nya 
+        
+
+        
+        setVisible(true);
+    }
+    
+    public void tampilDataKostum(){
+        listKostum = kostumController.getAllKostum(); // ngambil semua data dari database kostum
+        
+        jComboBoxKostum.removeAllItems(); // ini untuk menghapus item sebelumnya
+        for (KostumModel kostum : listKostum){
+            jComboBoxKostum.addItem(kostum.getNama()); // ini untuk nambahin ke dropdown nya
+        }
     }
     
     private void isiDataForm(RentalModel rentalModel){
         jTextFieldNama.setText(rentalModel.getNama());
         jTextFieldNomor.setText(rentalModel.getNomorTelp());
         jTextAreaAlamat.setText(rentalModel.getAlamat());
-        jComboBoxKostum.setSelectedItem(rentalModel.getIdKostum());
+        
+        listKostum = kostumController.getAllKostum();
+        jComboBoxKostum.removeAllItems();
+        String idKostumSelected = rentalModel.getIdKostum();
+        int selectedIndex = -1;
+        
+        for (int i = 0; i < listKostum.size(); i ++){
+            KostumModel kostum = listKostum.get(i);
+            jComboBoxKostum.addItem(kostum.getNama());
+            
+            if (kostum.getId_kostum().equals(idKostumSelected)){
+                    selectedIndex = i;
+            }
+        }
+        
+        if (selectedIndex != -1) {
+            jComboBoxKostum.setSelectedIndex(selectedIndex);
+        }
+        
+
         jComboBox1.setSelectedItem(String.valueOf(rentalModel.getDurasiPinjam()));
         
         switch (rentalModel.getUkuran()){
@@ -48,10 +98,53 @@ public class FormEditView extends javax.swing.JFrame {
     }
     
     private void simpanPerubahan(){
-        rentalModel.setNama(jTextFieldNama.getText());
-        rentalModel.setNomorTelp(jTextFieldNomor.getText());
-        rentalModel.setAlamat(jTextAreaAlamat.getText());
+        //ambil durasi pinjam dari combobox
+        int durasi = Integer.parseInt((String) jComboBox1.getSelectedItem());
         
+        //ngambil informasi kostum yang di pilih nya
+        int selectedIndex = jComboBoxKostum.getSelectedIndex();
+        if (selectedIndex <0 || selectedIndex >= listKostum.size()){ // ini supaya kostum nya dipilih aja
+            JOptionPane.showMessageDialog(this, "Silahkan pilih dengan benar..");
+        }
+        KostumModel selectedKostum = listKostum.get(selectedIndex);
+        
+        int harga = selectedKostum.getHarga();
+        String id_Kostum = selectedKostum.getId_kostum();
+        
+        int totalBiaya = harga * durasi;
+        
+        String ukuran = "";
+        if (jRadioButton1.isSelected()){
+            ukuran = "L";
+        } else if(jRadioButton2.isSelected()){
+            ukuran = "XL";
+        } else {
+            ukuran = "XXL";
+        }
+        
+        RentalModel update = new RentalModel();
+        
+        update.setNama(jTextFieldNama.getText());
+        update.setNomorTelp(jTextFieldNomor.getText());
+        update.setAlamat(jTextAreaAlamat.getText());
+        update.setIdKostum(id_Kostum);
+        update.setUkuran(ukuran);
+        update.setDurasiPinjam(durasi);
+        update.setHarga(selectedKostum.getHarga());
+        update.setIdRental(rentalModel.getIdRental());
+        
+        if (formController == null || update == null) {
+            JOptionPane.showMessageDialog(this, "Terjadi kesalahan saat menyimpan data.");
+        return;
+        }
+        
+        boolean berhasil = formController.UpdateData(update);
+        if (berhasil){
+            JOptionPane.showMessageDialog(this, "Data Berhasil DiUpdate");
+        } else {
+            JOptionPane.showMessageDialog(this, "Gagal MengUpdate Data..");
+        }
+
     }
     
     
@@ -87,7 +180,7 @@ public class FormEditView extends javax.swing.JFrame {
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton3 = new javax.swing.JRadioButton();
-        jButton2 = new javax.swing.JButton();
+        SaveData = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -204,9 +297,14 @@ public class FormEditView extends javax.swing.JFrame {
         });
         jPanel3.add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 460, 60, -1));
 
-        jButton2.setText("Save Data");
-        jButton2.setPreferredSize(new java.awt.Dimension(430, 50));
-        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 530, -1, -1));
+        SaveData.setText("Save Data");
+        SaveData.setPreferredSize(new java.awt.Dimension(430, 50));
+        SaveData.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SaveDataMouseClicked(evt);
+            }
+        });
+        jPanel3.add(SaveData, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 530, -1, -1));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
 
@@ -239,6 +337,11 @@ public class FormEditView extends javax.swing.JFrame {
     private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton3ActionPerformed
+
+    private void SaveDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SaveDataMouseClicked
+        // TODO add your handling code here:
+        simpanPerubahan();
+    }//GEN-LAST:event_SaveDataMouseClicked
 
     /**
      * @param args the command line arguments
@@ -276,9 +379,9 @@ public class FormEditView extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton SaveData;
     private javax.swing.ButtonGroup UkuranKostum;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBoxKostum;
     private javax.swing.JLabel jLabel1;
