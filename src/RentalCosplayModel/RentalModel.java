@@ -8,18 +8,20 @@ public class RentalModel {
     private String kostum;
     private int durasiPinjam;
     private String ukuran;
+    private int harga;
     
     public RentalModel(){
         
     }
     
-    public RentalModel(String nama, String nomorTelp, String alamat, String kostum, String ukuran, int durasiPinjam){
+    public RentalModel(String nama, String nomorTelp, String alamat, String kostum, String ukuran, int durasiPinjam, int harga){
         this.nama = nama;
         this.nomorTelp = nomorTelp;
         this.alamat = alamat;
         this.kostum = kostum;
         this.ukuran = ukuran;
         this.durasiPinjam = durasiPinjam;
+        this.harga = harga;
         
     }
 
@@ -78,6 +80,15 @@ public class RentalModel {
     public void setIdRental(String idRental) {
         this.idRental = idRental;
     }
+
+    public int getHarga() {
+        return harga;
+    }
+
+    public void setHarga(int harga) {
+        this.harga = harga;
+    }
+    
     
     
     

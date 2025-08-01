@@ -5,7 +5,8 @@
  */
 package rental.cosplay.view.rental;
 
-import RentalCosplayModel.RentalModel;
+//import RentalCosplayModel.RentalModel;
+import rental.cosplay.model.RentalModel;
 import java.awt.Color;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -14,6 +15,7 @@ import javax.swing.table.DefaultTableModel;
 import rental.cosplay.components.ShadowPanel;
 import rental.cosplay.controller.RentalController;
 import rental.cosplay.controller.FormController;
+import formInformasi.EditFormView;
 
 /**
  *
@@ -226,9 +228,9 @@ public class RentalDataView extends javax.swing.JPanel {
 //            }
 //        }
 //        
-        String nama = jTextFieldInputEdit.getText().trim();
+        String idRental = jTextFieldInputEdit.getText().trim();
         
-        if (nama.isEmpty()){
+        if (idRental.isEmpty()){
             JOptionPane.showMessageDialog(this, "Masukan Nama Data yang Akan Dihapus.");
             return;
         }
@@ -236,7 +238,7 @@ public class RentalDataView extends javax.swing.JPanel {
         int konfir = JOptionPane.showConfirmDialog(this, "Anda Yakin Ingin Menghapus Data ini?");
         if (konfir == JOptionPane.YES_OPTION){
             FormController controller = new FormController();
-            boolean berhasil = controller.hapusData(nama);
+            boolean berhasil = controller.hapusData(idRental);
             
             if (berhasil){
                 JOptionPane.showMessageDialog(this, "Data Berhasil Dihapus");
@@ -249,8 +251,24 @@ public class RentalDataView extends javax.swing.JPanel {
 
     private void jLabelEditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelEditMouseClicked
         // TODO add your handling code here:
+        String idRental = jTextFieldInputEdit.getText().trim();
         
-            
+        if(idRental.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Masukan Nama yang Ada di Database");
+            return;
+        }
+        
+        FormController controller = new FormController();
+        RentalModel rental = controller.getDataById(idRental);
+        
+        
+        if (rental == null){
+            JOptionPane.showMessageDialog(this, "Data Tidak Ditemukan");
+            return;
+        }
+        
+        EditFormView edit = new EditFormView(idRental);
+        edit.setVisible(true);
     }//GEN-LAST:event_jLabelEditMouseClicked
 
 
