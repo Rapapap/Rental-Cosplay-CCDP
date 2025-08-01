@@ -42,20 +42,8 @@ public class FormEditView extends javax.swing.JFrame {
         }
         
         isiDataForm(rentalModel); // isi semua field di form
-        tampilDataKostum(); // tampil data kostum nya 
-        
-
         
         setVisible(true);
-    }
-    
-    public void tampilDataKostum(){
-        listKostum = kostumController.getAllKostum(); // ngambil semua data dari database kostum
-        
-        jComboBoxKostum.removeAllItems(); // ini untuk menghapus item sebelumnya
-        for (KostumModel kostum : listKostum){
-            jComboBoxKostum.addItem(kostum.getNama()); // ini untuk nambahin ke dropdown nya
-        }
     }
     
     private void isiDataForm(RentalModel rentalModel){
@@ -141,6 +129,8 @@ public class FormEditView extends javax.swing.JFrame {
         boolean berhasil = formController.UpdateData(update);
         if (berhasil){
             JOptionPane.showMessageDialog(this, "Data Berhasil DiUpdate");
+            new FormInformasiView().setVisible(true); // tampilkan kembali frame utama
+            this.dispose(); // tutup frame edit atau lebih tepat nya form saat ini 
         } else {
             JOptionPane.showMessageDialog(this, "Gagal MengUpdate Data..");
         }
