@@ -24,10 +24,22 @@ public class RentalModel {
         this.idKostum = kostum;
         this.ukuran = ukuran;
         this.durasiPinjam = durasiPinjam;
-        this.harga = harga;
-        
+        this.harga = harga;   
     }
 
+    public RentalModel(String idRental, String nama, String nomorTelp, String alamat,  int durasiPinjam, String ukuran, int harga, String tglPinjam, String tglKembali, String status) {
+        this.idRental = idRental;
+        this.nama = nama;
+        this.nomorTelp = nomorTelp;
+        this.alamat = alamat;
+        this.durasiPinjam = durasiPinjam;
+        this.ukuran = ukuran;
+        this.harga = harga;
+        this.tglPinjam = tglPinjam;
+        this.tglKembali = tglKembali;
+        this.status = status;
+    }
+    
     public String getIdRental() {
         return idRental;
     }

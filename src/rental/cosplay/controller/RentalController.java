@@ -7,6 +7,7 @@ package rental.cosplay.controller;
 
 import rental.cosplay.model.RentalModel;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -34,12 +35,18 @@ public class RentalController {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
+                String id_rental = resultSet.getString("id_rental");
                 String nama = resultSet.getString("nama");
                 String noTelp = resultSet.getString("nomor_telp");
                 String alamat = resultSet.getString("alamat");
                 int durasi = resultSet.getInt("durasi_pinjam");
+                Date tglPinjam = resultSet.getDate("tgl_pinjam");
+                Date tglKembali = resultSet.getDate("tgl_kembali");
+                String status = resultSet.getString("status");
+                int tBiaya = resultSet.getInt("total_biaya");
+                String ukuranKostum = resultSet.getString("ukuran_kostum");
 
-                rental.add(new RentalModel(nama, noTelp, alamat, "", "", durasi, 0));
+                rental.add(new RentalModel(id_rental, nama, noTelp, alamat, durasi, ukuranKostum, tBiaya, String.valueOf(tglPinjam), String.valueOf(tglKembali), status));
             }
         } catch (SQLException e) {
             e.printStackTrace();

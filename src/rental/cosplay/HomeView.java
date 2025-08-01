@@ -38,7 +38,7 @@ public class HomeView extends javax.swing.JPanel {
                 jJumlahKostum.setText(String.valueOf(rs1.getInt(1))); 
             }
 
-            ResultSet rs2 = stmt.executeQuery("SELECT COUNT(*) FROM rental WHERE status = 'Dipinjam'; ");
+            ResultSet rs2 = stmt.executeQuery("SELECT COUNT(*) FROM rental WHERE status = 'Belum Kembali'; ");
             if (rs2.next()) {
                 jJumlahRental.setText(String.valueOf(rs2.getInt(1))); 
             }

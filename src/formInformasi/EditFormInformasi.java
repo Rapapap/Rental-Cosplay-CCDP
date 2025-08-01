@@ -53,6 +53,8 @@ public class EditFormInformasi extends javax.swing.JPanel {
         jRadioButton4 = new javax.swing.JRadioButton();
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jLabel11 = new javax.swing.JLabel();
 
         jMenu1.setText("jMenu1");
 
@@ -142,11 +144,11 @@ public class EditFormInformasi extends javax.swing.JPanel {
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel9.setText("Hari");
-        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 460, -1, -1));
+        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 460, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel10.setText("Ukuran Kostum");
-        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 410, -1, -1));
+        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 410, -1, -1));
 
         jRadioButton4.setBackground(new java.awt.Color(254, 235, 237));
         UkuranKostum.add(jRadioButton4);
@@ -157,19 +159,28 @@ public class EditFormInformasi extends javax.swing.JPanel {
                 jRadioButton4ActionPerformed(evt);
             }
         });
-        jPanel3.add(jRadioButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 450, -1, -1));
+        jPanel3.add(jRadioButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 460, -1, -1));
 
         jRadioButton1.setBackground(new java.awt.Color(254, 235, 237));
         UkuranKostum.add(jRadioButton1);
         jRadioButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jRadioButton1.setText("XL");
-        jPanel3.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 450, -1, -1));
+        jPanel3.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 460, -1, -1));
 
         jRadioButton2.setBackground(new java.awt.Color(254, 235, 237));
         UkuranKostum.add(jRadioButton2);
         jRadioButton2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jRadioButton2.setText("XXL");
-        jPanel3.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 450, -1, -1));
+        jPanel3.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 460, -1, -1));
+
+        jComboBox2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Belum Kembali", "Sudah Kembali", "Hilang" }));
+        jComboBox2.setPreferredSize(new java.awt.Dimension(50, 40));
+        jPanel3.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 450, 160, -1));
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel11.setText("Status");
+        jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 410, -1, -1));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, 580));
 
@@ -199,9 +210,11 @@ public class EditFormInformasi extends javax.swing.JPanel {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonSimpanData;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBoxKostum;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

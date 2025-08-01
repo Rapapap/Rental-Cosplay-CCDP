@@ -49,17 +49,30 @@ public class RentalDataView extends javax.swing.JPanel {
     private void UpdateTable(){
         tabModel = (DefaultTableModel) TableData.getModel();
         
+        tabModel.setRowCount(0);
         this.RentalList = rentalController.getAllRental();
+        
+        
         
         if (RentalList != null || !RentalList.isEmpty()) {
             for (RentalModel data : RentalList) {
+                String tglKembali = "";
+                if (data.getTglKembali() == "null") {
+                    tglKembali = "0000-00-00";
+                }else{
+                    tglKembali = data.getTglKembali();
+                }
                 tabModel.addRow(new Object[]{
+                    data.getIdRental(),
                     data.getNama(),
                     data.getNomorTelp(),
                     data.getAlamat(),
-                    "",
-                    "",
-                    data.getDurasiPinjam()
+                    data.getTglPinjam(),
+                    tglKembali,
+                    data.getDurasiPinjam(),
+                    data.getStatus(),
+                    data.getHarga(),
+                    data.getUkuran()
                 });
             }
         }
@@ -84,6 +97,8 @@ public class RentalDataView extends javax.swing.JPanel {
         jTextFieldInputEdit = new javax.swing.JTextField();
         jLabelDelete = new javax.swing.JLabel();
         jLabelEdit = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TableData = new javax.swing.JTable();
 
@@ -152,6 +167,39 @@ public class RentalDataView extends javax.swing.JPanel {
         jPanel6.add(jLabelEdit);
         jLabelEdit.setBounds(838, 20, 24, 30);
 
+        jPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel2MouseClicked(evt);
+            }
+        });
+
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rental/cosplay/view/kostum/refresh_icon.png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel3)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel3)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        jPanel6.add(jPanel2);
+        jPanel2.setBounds(910, 20, 30, 30);
+
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 990, 100));
 
         jScrollPane1.setBackground(new java.awt.Color(255, 255, 102));
@@ -162,14 +210,14 @@ public class RentalDataView extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Nama", "No Telp", "Alamat", "Kosong", "Kosong2", "Durasi"
+                "Id Rental", "Nama", "No Telp", "Alamat", "Tgl Pinjam", "Tgl Kembali", "Durasi", "Status", "Total Biaya", "Ukuran Kostum"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Double.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Double.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -178,6 +226,11 @@ public class RentalDataView extends javax.swing.JPanel {
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        TableData.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TableDataMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(TableData);
@@ -272,15 +325,29 @@ public class RentalDataView extends javax.swing.JPanel {
         
     }//GEN-LAST:event_jLabelEditMouseClicked
 
+    private void TableDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableDataMouseClicked
+        tabModel = (DefaultTableModel) TableData.getModel();
+        int row = TableData.getSelectedRow();
+        
+        jTextFieldInputEdit.setText(tabModel.getValueAt(row, 0).toString());
+    }//GEN-LAST:event_TableDataMouseClicked
+
+    private void jPanel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseClicked
+ 
+        UpdateTable();
+    }//GEN-LAST:event_jPanel2MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TableData;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabelDelete;
     private javax.swing.JLabel jLabelEdit;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;

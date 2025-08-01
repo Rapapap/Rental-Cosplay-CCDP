@@ -36,7 +36,7 @@ public class MainView extends javax.swing.JFrame {
         lokasi = "HOME";
         
         HomeButton.setBackground(putih);
-        KatalogButton.setBackground(pink);
+        KostumButton.setBackground(pink);
         RentalButton.setBackground(pink);
         RentalData.setBackground(pink);
         LogoutButton.setBackground(pink);
@@ -49,7 +49,7 @@ public class MainView extends javax.swing.JFrame {
 
     private void resetSidebarColor() {
         HomeButton.setBackground(pink);
-        KatalogButton.setBackground(pink);
+        KostumButton.setBackground(pink);
         RentalButton.setBackground(pink);
         LogoutButton.setBackground(pink);
         RentalData.setBackground(pink);
@@ -67,9 +67,6 @@ public class MainView extends javax.swing.JFrame {
         MainPanel = new javax.swing.JPanel();
         SideBarPanel = new RoundedPanel(8, Color.decode("#F7A8C7"));
         jLabel2 = new javax.swing.JLabel();
-        KatalogButton = new RoundedPanel(30, Color.decode("#80AF81"));
-        jLabel3 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         HomeButton = new RoundedPanel(30, Color.decode("#F7CAC9"));
         jLabel1 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -82,6 +79,9 @@ public class MainView extends javax.swing.JFrame {
         RentalData = new RoundedPanel(30, Color.decode("#80AF81"));
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
+        KostumButton = new RoundedPanel(30, Color.decode("#F7CAC9"));
+        jLabel4 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
         BodyPanel = new javax.swing.JPanel();
         ContentPanel = new javax.swing.JPanel();
 
@@ -101,53 +101,6 @@ public class MainView extends javax.swing.JFrame {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rental/cosplay/img/LogoKecil.png"))); // NOI18N
         SideBarPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 24, -1, 92));
-
-        KatalogButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                KatalogButtonMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                KatalogButtonMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                KatalogButtonMouseExited(evt);
-            }
-        });
-        KatalogButton.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                KatalogButtonKeyPressed(evt);
-            }
-        });
-
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rental/cosplay/img/Katalog.png"))); // NOI18N
-        jLabel3.setToolTipText("");
-
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Katalog");
-        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel7MouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout KatalogButtonLayout = new javax.swing.GroupLayout(KatalogButton);
-        KatalogButton.setLayout(KatalogButtonLayout);
-        KatalogButtonLayout.setHorizontalGroup(
-            KatalogButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(KatalogButtonLayout.createSequentialGroup()
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        KatalogButtonLayout.setVerticalGroup(
-            KatalogButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
-            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
-        SideBarPanel.add(KatalogButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 200, 60));
 
         HomeButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -318,6 +271,48 @@ public class MainView extends javax.swing.JFrame {
 
         SideBarPanel.add(RentalData, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 200, 60));
 
+        KostumButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                KostumButtonMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                KostumButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                KostumButtonMouseExited(evt);
+            }
+        });
+        KostumButton.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                KostumButtonKeyPressed(evt);
+            }
+        });
+
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rental/cosplay/img/Katalog.png"))); // NOI18N
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("Katalog");
+
+        javax.swing.GroupLayout KostumButtonLayout = new javax.swing.GroupLayout(KostumButton);
+        KostumButton.setLayout(KostumButtonLayout);
+        KostumButtonLayout.setHorizontalGroup(
+            KostumButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(KostumButtonLayout.createSequentialGroup()
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
+        );
+        KostumButtonLayout.setVerticalGroup(
+            KostumButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+            .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        SideBarPanel.add(KostumButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 200, 60));
+
         MainPanel.add(SideBarPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 240, -1));
 
         BodyPanel.setPreferredSize(new java.awt.Dimension(1050, 720));
@@ -337,10 +332,6 @@ public class MainView extends javax.swing.JFrame {
     private void HomeButtonKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_HomeButtonKeyPressed
         // TODO add your handling code here:\  
     }//GEN-LAST:event_HomeButtonKeyPressed
-
-    private void KatalogButtonKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_KatalogButtonKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_KatalogButtonKeyPressed
 
     private void RentalButtonKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RentalButtonKeyPressed
 
@@ -370,13 +361,6 @@ public class MainView extends javax.swing.JFrame {
 
     }//GEN-LAST:event_LogoutButtonKeyPressed
 
-    private void KatalogButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KatalogButtonMouseClicked
-        navigationController.goTo(this, new RentalDataView());
-        resetSidebarColor();
-        lokasi = "KATALOG";
-        KatalogButton.setBackground(putih);
-    }//GEN-LAST:event_KatalogButtonMouseClicked
-
     private void HomeButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeButtonMouseEntered
         if (lokasi != "HOME") {
             HomeButton.setBackground(putih);
@@ -388,18 +372,6 @@ public class MainView extends javax.swing.JFrame {
             HomeButton.setBackground(pink);
         }
     }//GEN-LAST:event_HomeButtonMouseExited
-
-    private void KatalogButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KatalogButtonMouseEntered
-        if (lokasi != "KATALOG") {
-            KatalogButton.setBackground(putih);
-        }
-    }//GEN-LAST:event_KatalogButtonMouseEntered
-
-    private void KatalogButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KatalogButtonMouseExited
-        if (lokasi != "KATALOG") {
-            KatalogButton.setBackground(pink);
-        }
-    }//GEN-LAST:event_KatalogButtonMouseExited
 
     private void RentalButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RentalButtonMouseEntered
         if (lokasi != "RENTAL") {
@@ -449,9 +421,24 @@ public class MainView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_RentalDataKeyPressed
 
-    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
+    private void KostumButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KostumButtonMouseClicked
+        navigationController.goTo(this, new KostumPanel());
+        lokasi = "KOSTUM";
+        resetSidebarColor();
+        RentalButton.setBackground(putih);
+    }//GEN-LAST:event_KostumButtonMouseClicked
+
+    private void KostumButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KostumButtonMouseEntered
         // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel7MouseClicked
+    }//GEN-LAST:event_KostumButtonMouseEntered
+
+    private void KostumButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KostumButtonMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_KostumButtonMouseExited
+
+    private void KostumButtonKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_KostumButtonKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_KostumButtonKeyPressed
 
     /**
      * @param args the command line arguments
@@ -492,7 +479,7 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JPanel BodyPanel;
     private javax.swing.JPanel ContentPanel;
     private javax.swing.JPanel HomeButton;
-    private javax.swing.JPanel KatalogButton;
+    private javax.swing.JPanel KostumButton;
     private javax.swing.JPanel LogoutButton;
     private javax.swing.JPanel MainPanel;
     private javax.swing.JPanel RentalButton;
@@ -500,13 +487,13 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JPanel SideBarPanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     // End of variables declaration//GEN-END:variables

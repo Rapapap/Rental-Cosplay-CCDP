@@ -19,6 +19,7 @@ import rental.cosplay.controller.FormController;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 
 import rental.cosplay.DatabaseConnection;
@@ -33,6 +34,8 @@ import rental.cosplay.components.ShadowPanel;
 public final class FormInformasiView extends javax.swing.JPanel {
     private List<KostumModel> listKostum = new ArrayList<>();
     private KostumController kostumController = new KostumController();
+    ButtonGroup sizeGroup = new ButtonGroup();   // Ensures only one can be selected
+
     // Jangan pakai jComboBoxKostum dari designer
     private javax.swing.JComboBox<KostumModel> comboKostumManual; // ini ngerubah dropdown nya 
 
@@ -87,9 +90,6 @@ public final class FormInformasiView extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButtonSimpanData = new javax.swing.JButton();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
         jComboBoxKostum = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -100,6 +100,7 @@ public final class FormInformasiView extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextAreaAlamat = new javax.swing.JTextArea();
         jLabel10 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -134,6 +135,11 @@ public final class FormInformasiView extends javax.swing.JPanel {
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jButton1.setText("Lihat Detail");
         jButton1.setPreferredSize(new java.awt.Dimension(100, 30));
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
         jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 365, 110, -1));
 
         jButtonSimpanData.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -147,43 +153,17 @@ public final class FormInformasiView extends javax.swing.JPanel {
         });
         jPanel3.add(jButtonSimpanData, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 520, -1, -1));
 
-        jRadioButton1.setBackground(new java.awt.Color(254, 235, 237));
-        UkuranKostum.add(jRadioButton1);
-        jRadioButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jRadioButton1.setText("L");
-        jRadioButton1.setPreferredSize(new java.awt.Dimension(50, 20));
-        jPanel3.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 460, -1, -1));
-
-        jRadioButton2.setBackground(new java.awt.Color(254, 235, 237));
-        UkuranKostum.add(jRadioButton2);
-        jRadioButton2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jRadioButton2.setText("XL");
-        jRadioButton2.setPreferredSize(new java.awt.Dimension(50, 20));
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 460, -1, -1));
-
-        jRadioButton3.setBackground(new java.awt.Color(254, 235, 237));
-        UkuranKostum.add(jRadioButton3);
-        jRadioButton3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jRadioButton3.setText("XXL");
-        jRadioButton3.setPreferredSize(new java.awt.Dimension(50, 20));
-        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton3ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 460, 60, -1));
-
         jComboBoxKostum.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jComboBoxKostum.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kostum1", "Kostum2", "Kostum3" }));
         jComboBoxKostum.setPreferredSize(new java.awt.Dimension(300, 40));
         jComboBoxKostum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxKostumActionPerformed(evt);
+            }
+        });
+        jComboBoxKostum.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jComboBoxKostumPropertyChange(evt);
             }
         });
         jPanel3.add(jComboBoxKostum, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, -1, -1));
@@ -224,6 +204,10 @@ public final class FormInformasiView extends javax.swing.JPanel {
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rental/cosplay/img/Login.jpg"))); // NOI18N
         jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 120, -1, -1));
+
+        jPanel2.setBackground(new java.awt.Color(254, 235, 237));
+        jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.LINE_AXIS));
+        jPanel3.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 450, 250, 40));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, 670));
 
@@ -268,15 +252,14 @@ public final class FormInformasiView extends javax.swing.JPanel {
         int harga = selectedKostum.getHarga();
         
         //ngambil data radio button nya 
-        String ukuran = "";
-        if (jRadioButton1.isSelected()){
-            ukuran = "L";
-        } else if(jRadioButton2.isSelected()){
-            ukuran = "XL";
-        } else {
-            ukuran = "XXL";
-        }
- 
+        String ukuran = sizeGroup.getSelection().getActionCommand();
+//        if (jRadioButton1.isSelected()){
+//            ukuran = "L";
+//        } else if(jRadioButton2.isSelected()){
+//            ukuran = "XL";
+//        } else {
+//            ukuran = "XXL";
+//        }
         if (selectedIndex >=0 && listKostum != null){
             String kostum = selectedKostum.getId_kostum();
             
@@ -304,17 +287,44 @@ public final class FormInformasiView extends javax.swing.JPanel {
         
     }//GEN-LAST:event_jButtonSimpanDataActionPerformed
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
-
-    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton3ActionPerformed
-
     private void jComboBoxKostumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxKostumActionPerformed
-        // TODO add your handling code here:
+        jPanel2.removeAll();
+        int selectedIndex = jComboBoxKostum.getSelectedIndex() != -1 ? jComboBoxKostum.getSelectedIndex() : 0;
+        System.out.println(selectedIndex);
+        if (selectedIndex <0 || selectedIndex >= listKostum.size()){ // ini supaya kostum nya dipilih aja
+            JOptionPane.showMessageDialog(this, "Silahkan pilih dengan benar..");
+        }
+        KostumModel selectedKostum = listKostum.get(selectedIndex);
+        
+        String sizes = selectedKostum.getUkuran();
+        String[] sizeArray = sizes.split(",\\s*");
+        
+
+        for (String size : sizeArray) {
+            javax.swing.JRadioButton radioButton = new javax.swing.JRadioButton(size);
+            radioButton.setActionCommand(size);       // Set value for later retrieval
+            sizeGroup.add(radioButton);
+            jPanel2.add(radioButton);
+        }
+        
+        jPanel2.revalidate();  // Refresh layout
+        jPanel2.repaint(); 
     }//GEN-LAST:event_jComboBoxKostumActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+       int selectedIndex = jComboBoxKostum.getSelectedIndex();
+        if (selectedIndex <0 || selectedIndex >= listKostum.size()){ // ini supaya kostum nya dipilih aja
+            JOptionPane.showMessageDialog(this, "Silahkan pilih dengan benar..");
+        }
+        KostumModel selectedKostum = listKostum.get(selectedIndex);
+        
+        DetailKostumFrame detailKostum = new DetailKostumFrame(selectedKostum);
+        detailKostum.setVisible(true);
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jComboBoxKostumPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jComboBoxKostumPropertyChange
+        
+    }//GEN-LAST:event_jComboBoxKostumPropertyChange
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -334,11 +344,9 @@ public final class FormInformasiView extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextAreaAlamat;
     private javax.swing.JTextField jTextFieldNama;

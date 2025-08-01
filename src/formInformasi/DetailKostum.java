@@ -5,17 +5,20 @@
  */
 package formInformasi;
 
+import rental.cosplay.model.KostumModel;
+
 /**
  *
  * @author LENOVO LOOQ
  */
-public class DetailKostum extends javax.swing.JPanel {
+public class DetailKostum extends javax.swing.JFrame {
 
     /**
      * Creates new form DetailKostum
      */
-    public DetailKostum() {
+    public DetailKostum(KostumModel kostum) {
         initComponents();
+        
     }
 
     /**
