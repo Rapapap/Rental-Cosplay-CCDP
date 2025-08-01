@@ -231,7 +231,7 @@ public class RentalDataView extends javax.swing.JPanel {
         String idRental = jTextFieldInputEdit.getText().trim();
         
         if (idRental.isEmpty()){
-            JOptionPane.showMessageDialog(this, "Masukan Nama Data yang Akan Dihapus.");
+            JOptionPane.showMessageDialog(this, "Masukan id Data yang Akan Dihapus.");
             return;
         }
         
@@ -254,7 +254,7 @@ public class RentalDataView extends javax.swing.JPanel {
         String idRental = jTextFieldInputEdit.getText().trim();
         
         if(idRental.isEmpty()){
-            JOptionPane.showMessageDialog(this, "Masukan Nama yang Ada di Database");
+            JOptionPane.showMessageDialog(this, "Masukan Id yang Ada di Database");
             return;
         }
         
