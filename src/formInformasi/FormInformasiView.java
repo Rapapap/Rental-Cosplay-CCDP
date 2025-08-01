@@ -250,7 +250,7 @@ public final class FormInformasiView extends javax.swing.JPanel {
         String alamat = jTextAreaAlamat.getText();
         
         // validasi untuk inputan nya
-        if (nama.isEmpty() || nomor.isEmpty() || alamat.isEmpty()){
+        if (nama.isEmpty() || nomor.isEmpty() || alamat.isEmpty()){ // validasi sumpaya data tidak ada yang kosong salah satu
             JOptionPane.showMessageDialog(this, "Data Harap Diisi Semua...");
             return;
         }
@@ -282,11 +282,11 @@ public final class FormInformasiView extends javax.swing.JPanel {
             
             // simpan ke database
             RentalModel form = new RentalModel();
-            form.setKostum(kostum);
+            form.setIdKostum(kostum);
             form.setNama(nama);
             form.setNomorTelp(nomor);
             form.setAlamat(alamat);
-            form.setKostum(kostum);
+            form.setIdKostum(kostum);
             form.setUkuran(ukuran);
             form.setDurasiPinjam(durasi);
             form.setHarga(selectedKostum.getHarga()); // ngambil harga dari database kostum

@@ -7,6 +7,7 @@ package formInformasi;
 
 import rental.cosplay.DatabaseConnection;
 import rental.cosplay.model.RentalModel;
+import rental.cosplay.controller.FormController;
 
 
 /**
@@ -16,16 +17,44 @@ import rental.cosplay.model.RentalModel;
 public class FormEditView extends javax.swing.JFrame {
     DatabaseConnection dbConnection;
     RentalModel rentalModel;
-    
-    
-    
+    FormController formController;
 
     /**
      * Creates new form FormEditView
      */
-    public FormEditView() {
+    public FormEditView(RentalModel rentalModel) {
         initComponents();
+        isiDataForm(rentalModel);
     }
+    
+    private void isiDataForm(RentalModel rentalModel){
+        jTextFieldNama.setText(rentalModel.getNama());
+        jTextFieldNomor.setText(rentalModel.getNomorTelp());
+        jTextAreaAlamat.setText(rentalModel.getAlamat());
+        jComboBoxKostum.setSelectedItem(rentalModel.getIdKostum());
+        jComboBox1.setSelectedItem(String.valueOf(rentalModel.getDurasiPinjam()));
+        
+        switch (rentalModel.getUkuran()){
+            case "L" : 
+                jRadioButton1.setSelected(true);
+                break;
+            case "XL" : 
+                jRadioButton2.setSelected(true);
+                break;
+            case "XXL" : 
+                jRadioButton3.setSelected(true);
+                break;
+        }
+    }
+    
+    private void simpanPerubahan(){
+        rentalModel.setNama(jTextFieldNama.getText());
+        rentalModel.setNomorTelp(jTextFieldNomor.getText());
+        rentalModel.setAlamat(jTextAreaAlamat.getText());
+        
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -138,7 +167,7 @@ public class FormEditView extends javax.swing.JFrame {
         jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3" }));
         jComboBox1.setPreferredSize(new java.awt.Dimension(50, 40));
-        jPanel3.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 450, -1, -1));
+        jPanel3.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel7.setText("Ukuran Kostum");
@@ -214,37 +243,37 @@ public class FormEditView extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FormEditView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FormEditView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FormEditView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FormEditView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FormEditView().setVisible(true);
-            }
-        });
-    }
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(FormEditView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(FormEditView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(FormEditView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(FormEditView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new FormEditView().setVisible(true);
+//            }
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup UkuranKostum;

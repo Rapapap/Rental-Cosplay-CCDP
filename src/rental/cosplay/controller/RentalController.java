@@ -5,7 +5,7 @@
  */
 package rental.cosplay.controller;
 
-import RentalCosplayModel.RentalModel;
+import rental.cosplay.model.RentalModel;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -39,7 +39,7 @@ public class RentalController {
                 String alamat = resultSet.getString("alamat");
                 int durasi = resultSet.getInt("durasi_pinjam");
 
-                rental.add(new RentalModel(nama, noTelp, alamat, "", "", durasi));
+                rental.add(new RentalModel(nama, noTelp, alamat, "", "", durasi, 0));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -62,7 +62,7 @@ public class RentalController {
                 model.setNama(rs.getString("nama"));
                 model.setNomorTelp(rs.getString("nomor_telp"));
                 model.setAlamat(rs.getString("alamat"));
-                model.setKostum(rs.getString("id_kostum"));
+                model.setIdKostum(rs.getString("id_kostum"));
                 model.setDurasiPinjam(rs.getInt("durasi_pinjam"));
                 model.setUkuran(rs.getString("ukuran_kostum"));
             } 
