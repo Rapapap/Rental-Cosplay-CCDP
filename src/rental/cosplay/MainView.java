@@ -425,15 +425,21 @@ public class MainView extends javax.swing.JFrame {
         navigationController.goTo(this, new KostumPanel());
         lokasi = "KOSTUM";
         resetSidebarColor();
-        RentalButton.setBackground(putih);
+        KostumButton.setBackground(putih);
     }//GEN-LAST:event_KostumButtonMouseClicked
 
     private void KostumButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KostumButtonMouseEntered
         // TODO add your handling code here:
+        if (lokasi != "KOSTUMBUTTON") {
+            KostumButton.setBackground(putih);
+        }
     }//GEN-LAST:event_KostumButtonMouseEntered
 
     private void KostumButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KostumButtonMouseExited
         // TODO add your handling code here:
+        if (lokasi != "KOSTUMBUTTON") {
+            KostumButton.setBackground(pink);
+        }
     }//GEN-LAST:event_KostumButtonMouseExited
 
     private void KostumButtonKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_KostumButtonKeyPressed
