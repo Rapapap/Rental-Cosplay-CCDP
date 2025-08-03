@@ -202,8 +202,9 @@ public final class FormInformasiView extends javax.swing.JPanel {
 
         jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, -1, -1));
 
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rental/cosplay/img/Login.jpg"))); // NOI18N
-        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 120, -1, -1));
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rental/cosplay/img/Login.png"))); // NOI18N
+        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 0, 530, 510));
 
         jPanel2.setBackground(new java.awt.Color(254, 235, 237));
         jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.LINE_AXIS));

@@ -307,13 +307,14 @@
             </Container>
             <Component class="javax.swing.JLabel" name="jLabel10">
               <Properties>
+                <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/rental/cosplay/img/Login.jpg"/>
+                  <Image iconType="3" name="/rental/cosplay/img/Login.png"/>
                 </Property>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="570" y="120" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="490" y="0" width="530" height="510"/>
                 </Constraint>
               </Constraints>
             </Component>
