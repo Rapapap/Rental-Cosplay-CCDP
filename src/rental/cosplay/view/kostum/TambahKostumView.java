@@ -234,49 +234,33 @@ public class TambahKostumView extends javax.swing.JFrame {
         String nama = jNamaKostum.getText().trim();
         String ukuran = jUkuranKostum.getText().trim();
         String hargaText = jHargaKostum.getText().trim();
-        int harga = Integer.parseInt(hargaText);
         String deskripsi = jDeskripsi.getText().trim();
 
         // Validasi data
-        /*if (namaObat.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Nama obat tidak boleh kosong", "Kesalahan Input", JOptionPane.ERROR_MESSAGE);
+        if (nama.isEmpty()) {
+            jOptionPane1.showMessageDialog(this, "Nama kostum tidak boleh kosong", "Kesalahan Input", jOptionPane1.ERROR_MESSAGE);
             return;
         }
-        if (kategoriObj == null || kategoriObj.toString().trim().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Kategori harus dipilih", "Kesalahan Input", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        if (exp.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Tanggal kadaluarsa tidak boleh kosong", "Kesalahan Input", JOptionPane.ERROR_MESSAGE);
+        if (ukuran.isEmpty()) {
+            jOptionPane1.showMessageDialog(this, "Ukuran kostum tidak boleh kosong", "Kesalahan Input", jOptionPane1.ERROR_MESSAGE);
             return;
         }
         if (hargaText.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Harga tidak boleh kosong", "Kesalahan Input", JOptionPane.ERROR_MESSAGE);
+            jOptionPane1.showMessageDialog(this, "Harga tidak boleh kosong", "Kesalahan Input", jOptionPane1.ERROR_MESSAGE);
             return;
         }
-        if (stokText.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Stok tidak boleh kosong", "Kesalahan Input", JOptionPane.ERROR_MESSAGE);
+        if (deskripsi.isEmpty()) {
+            jOptionPane1.showMessageDialog(this, "Deskripsi kostum tidak boleh kosong", "Kesalahan Input", jOptionPane1.ERROR_MESSAGE);
             return;
         }
 
         int harga;
-        int stok;
         try {
             harga = Integer.parseInt(hargaText);
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Harga harus berupa angka", "Kesalahan Input", JOptionPane.ERROR_MESSAGE);
             return;
         }
-
-        try {
-            stok = Integer.parseInt(stokText);
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Stok harus berupa angka", "Kesalahan Input", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
-        String kategori = kategoriObj.toString().trim();
-*/
         // Buat model kostum
         KostumModel kostumModel = new KostumModel(id_kostum, nama, ukuran, harga, deskripsi);
 
