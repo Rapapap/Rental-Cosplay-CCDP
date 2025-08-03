@@ -5,6 +5,7 @@
  */
 package rental.cosplay.view.rental;
 
+import java.awt.Color;
 import rental.cosplay.view.rental.TambahRental;
 import java.awt.Component;
 import java.util.ArrayList;
@@ -193,7 +194,6 @@ public class RentalEditView extends javax.swing.JFrame {
         jTextAreaAlamat = new javax.swing.JTextArea();
         jLabel8 = new javax.swing.JLabel();
         jComboBoxKostum = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
@@ -267,11 +267,6 @@ public class RentalEditView extends javax.swing.JFrame {
             }
         });
         jPanel3.add(jComboBoxKostum, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, -1, -1));
-
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jButton1.setText("Lihat Detail");
-        jButton1.setPreferredSize(new java.awt.Dimension(100, 30));
-        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 365, 110, -1));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel6.setText("Durasi Pinjam");
@@ -349,6 +344,7 @@ public class RentalEditView extends javax.swing.JFrame {
         for (String size : sizeArray) {
             javax.swing.JRadioButton radioButton = new javax.swing.JRadioButton(size);
             radioButton.setActionCommand(size);       // Set value for later retrieval
+            radioButton.setBackground(Color.decode("#FFF8F8"));
             sizeGroup.add(radioButton);
             jPanel4.add(radioButton);
         }
@@ -395,7 +391,6 @@ public class RentalEditView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton SaveData;
     private javax.swing.ButtonGroup UkuranKostum;
-    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBoxKostum;
