@@ -287,7 +287,7 @@ public class RentalDataView extends javax.swing.JPanel {
             return;
         }
         
-        int konfir = JOptionPane.showConfirmDialog(this, "Anda Yakin Ingin Menghapus Data ini?");
+        int konfir = JOptionPane.showConfirmDialog(this, "Anda Yakin Ingin Menghapus Data ini?", "Konfirmasi Hapus", JOptionPane.YES_NO_OPTION);
         if (konfir == JOptionPane.YES_OPTION){
             FormController controller = new FormController();
             boolean berhasil = controller.hapusData(idRental);
