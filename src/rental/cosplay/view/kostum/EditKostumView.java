@@ -224,8 +224,33 @@ public class EditKostumView extends javax.swing.JFrame {
         String nama = jNamaKostum.getText().trim();
         String ukuran = jUkuranKostum.getText().trim();
         String hargaText = jHargaKostum.getText().trim();
-        int harga = Integer.parseInt(hargaText);
         String deskripsi = jDeskripsi.getText().trim();
+        
+        // Validasi data
+        if (nama.isEmpty()) {
+            jOptionPane1.showMessageDialog(this, "Nama kostum tidak boleh kosong", "Kesalahan Input", jOptionPane1.ERROR_MESSAGE);
+            return;
+        }
+        if (ukuran.isEmpty()) {
+            jOptionPane1.showMessageDialog(this, "Ukuran kostum tidak boleh kosong", "Kesalahan Input", jOptionPane1.ERROR_MESSAGE);
+            return;
+        }
+        if (hargaText.isEmpty()) {
+            jOptionPane1.showMessageDialog(this, "Harga tidak boleh kosong", "Kesalahan Input", jOptionPane1.ERROR_MESSAGE);
+            return;
+        }
+        if (deskripsi.isEmpty()) {
+            jOptionPane1.showMessageDialog(this, "Deskripsi kostum tidak boleh kosong", "Kesalahan Input", jOptionPane1.ERROR_MESSAGE);
+            return;
+        }
+
+        int harga;
+        try {
+            harga = Integer.parseInt(hargaText);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Harga harus berupa angka", "Kesalahan Input", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         
         kostumModel = new KostumModel(kostumModel.getId_kostum(), nama, ukuran, harga, deskripsi);
         boolean isUpdated = kostumController.updateKostum(kostumModel);
