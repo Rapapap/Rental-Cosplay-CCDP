@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package formInformasi;
+package rental.cosplay.view.rental;
 
+import rental.cosplay.view.kostum.DetailKostumFrame;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import rental.cosplay.controller.KostumController;
@@ -31,7 +32,7 @@ import rental.cosplay.components.ShadowPanel;
  *
  * @author LENOVO LOOQ
  */
-public final class FormInformasiView extends javax.swing.JPanel {
+public final class TambahRental extends javax.swing.JPanel {
     private List<KostumModel> listKostum = new ArrayList<>();
     private KostumController kostumController = new KostumController();
     ButtonGroup sizeGroup = new ButtonGroup();   // Ensures only one can be selected
@@ -42,7 +43,7 @@ public final class FormInformasiView extends javax.swing.JPanel {
     /**
      * Creates new form FormInformasiView
      */
-    public FormInformasiView() {
+    public TambahRental() {
         initComponents();
         tampilDataKostum();
     }
@@ -101,24 +102,24 @@ public final class FormInformasiView extends javax.swing.JPanel {
         jTextAreaAlamat = new javax.swing.JTextArea();
         jLabel10 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
+        jPanel4 = new ShadowPanel(30,  Color.decode("#F8BBD0"));
         jLabel1 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1040, 800));
         setLayout(new java.awt.CardLayout());
 
-        jPanel1.setBackground(new java.awt.Color(248, 187, 208));
+        jPanel1.setBackground(new java.awt.Color(254, 235, 237));
         jPanel1.setPreferredSize(new java.awt.Dimension(1040, 800));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel3.setBackground(new java.awt.Color(254, 235, 237));
+        jPanel3.setBackground(new java.awt.Color(255, 248, 248));
         jPanel3.setPreferredSize(new java.awt.Dimension(1020, 590));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("Durasi Pinjam");
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 410, -1, -1));
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("Nama Lengkap");
@@ -140,7 +141,7 @@ public final class FormInformasiView extends javax.swing.JPanel {
                 jButton1MouseClicked(evt);
             }
         });
-        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 365, 110, -1));
+        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 360, 110, -1));
 
         jButtonSimpanData.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButtonSimpanData.setText("Simpan Data");
@@ -151,7 +152,7 @@ public final class FormInformasiView extends javax.swing.JPanel {
                 jButtonSimpanDataActionPerformed(evt);
             }
         });
-        jPanel3.add(jButtonSimpanData, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 520, -1, -1));
+        jPanel3.add(jButtonSimpanData, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 500, -1, -1));
 
         jComboBoxKostum.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jComboBoxKostum.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kostum1", "Kostum2", "Kostum3" }));
@@ -166,24 +167,24 @@ public final class FormInformasiView extends javax.swing.JPanel {
                 jComboBoxKostumPropertyChange(evt);
             }
         });
-        jPanel3.add(jComboBoxKostum, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, -1, -1));
+        jPanel3.add(jComboBoxKostum, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel7.setText("Ukuran Kostum");
-        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 410, -1, -1));
+        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 400, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel8.setText("Kostum");
-        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, -1, -1));
+        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, -1, -1));
 
         jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3" }));
         jComboBox1.setPreferredSize(new java.awt.Dimension(50, 40));
-        jPanel3.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 450, -1, -1));
+        jPanel3.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 430, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel9.setText("Hari");
-        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 460, -1, -1));
+        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 440, -1, -1));
 
         jTextFieldNama.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextFieldNama.setPreferredSize(new java.awt.Dimension(430, 40));
@@ -204,26 +205,26 @@ public final class FormInformasiView extends javax.swing.JPanel {
 
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rental/cosplay/img/Login.png"))); // NOI18N
-        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 0, 530, 510));
+        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 30, 530, 510));
 
-        jPanel2.setBackground(new java.awt.Color(254, 235, 237));
+        jPanel2.setBackground(new java.awt.Color(255, 248, 248));
         jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.LINE_AXIS));
-        jPanel3.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 450, 250, 40));
+        jPanel3.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 430, 250, 40));
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, 670));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 1000, 560));
 
-        jPanel4.setBackground(new java.awt.Color(254, 235, 237));
+        jPanel4.setBackground(new java.awt.Color(255, 248, 248));
         jPanel4.setPreferredSize(new java.awt.Dimension(1020, 100));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel1.setText("Form Informasi Rental");
+        jLabel1.setText("Tambah Data Rental");
         jPanel4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 35, -1, -1));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/formInformasi/LogoKecil.png"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rental/cosplay/img/LogoKecil.png"))); // NOI18N
         jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, -15, 270, 140));
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 130));
 
         add(jPanel1, "card2");
     }// </editor-fold>//GEN-END:initComponents
@@ -304,6 +305,7 @@ public final class FormInformasiView extends javax.swing.JPanel {
         for (String size : sizeArray) {
             javax.swing.JRadioButton radioButton = new javax.swing.JRadioButton(size);
             radioButton.setActionCommand(size);       // Set value for later retrieval
+            radioButton.setBackground(Color.decode("#FFF8F8"));
             sizeGroup.add(radioButton);
             jPanel2.add(radioButton);
         }

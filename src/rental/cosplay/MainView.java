@@ -5,7 +5,7 @@
  */
 package rental.cosplay;
 
-import formInformasi.FormInformasiView;
+import rental.cosplay.view.rental.TambahRental;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JPanel;
@@ -338,7 +338,7 @@ public class MainView extends javax.swing.JFrame {
     }//GEN-LAST:event_RentalButtonKeyPressed
 
     private void RentalButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RentalButtonMouseClicked
-        navigationController.goTo(this, new FormInformasiView());
+        navigationController.goTo(this, new TambahRental());
         lokasi = "RENTAL";
         resetSidebarColor();
         RentalButton.setBackground(putih);

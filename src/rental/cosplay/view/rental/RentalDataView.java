@@ -15,7 +15,6 @@ import javax.swing.table.DefaultTableModel;
 import rental.cosplay.components.ShadowPanel;
 import rental.cosplay.controller.RentalController;
 import rental.cosplay.controller.FormController;
-import formInformasi.FormEditView;
 
 /**
  *
@@ -320,7 +319,7 @@ public class RentalDataView extends javax.swing.JPanel {
             return;
         }
         
-        FormEditView edit = new FormEditView(idRental);
+        RentalEditView edit = new RentalEditView(idRental);
         edit.setVisible(true);
         
     }//GEN-LAST:event_jLabelEditMouseClicked

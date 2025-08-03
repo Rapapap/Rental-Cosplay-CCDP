@@ -84,7 +84,7 @@ public class LoginView extends javax.swing.JFrame {
 
         btnLogin.setBackground(new java.awt.Color(253, 170, 203));
         btnLogin.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btnLogin.setForeground(new java.awt.Color(255, 51, 204));
+        btnLogin.setForeground(new java.awt.Color(255, 255, 255));
         btnLogin.setLabel("Login");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

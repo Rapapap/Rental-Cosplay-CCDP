@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package formInformasi;
+package rental.cosplay.view.rental;
 
+import rental.cosplay.view.rental.TambahRental;
 import java.awt.Component;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +23,7 @@ import rental.cosplay.model.KostumModel;
  *
  * @author LENOVO LOOQ
  */
-public class FormEditView extends javax.swing.JFrame {
+public class RentalEditView extends javax.swing.JFrame {
 
     DatabaseConnection dbConnection;
     RentalModel rentalModel;
@@ -37,7 +38,7 @@ public class FormEditView extends javax.swing.JFrame {
     /**
      * Creates new form FormEditView
      */
-    public FormEditView(String idRental) {
+    public RentalEditView(String idRental) {
         initComponents();
         this.formController = new FormController();
         rentalModel = formController.getDataById(idRental);
@@ -160,7 +161,7 @@ public class FormEditView extends javax.swing.JFrame {
         boolean berhasil = formController.UpdateData(update);
         if (berhasil) {
             JOptionPane.showMessageDialog(this, "Data Berhasil DiUpdate");
-            new FormInformasiView().setVisible(true); // tampilkan kembali frame utama
+            new TambahRental().setVisible(true); // tampilkan kembali frame utama
             this.dispose(); // tutup frame edit atau lebih tepat nya form saat ini 
         } else {
             JOptionPane.showMessageDialog(this, "Gagal MengUpdate Data..");
@@ -283,7 +284,7 @@ public class FormEditView extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel7.setText("Ukuran Kostum");
-        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 412, -1, -1));
+        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 410, -1, -1));
 
         SaveData.setText("Save Data");
         SaveData.setPreferredSize(new java.awt.Dimension(430, 50));
@@ -295,17 +296,18 @@ public class FormEditView extends javax.swing.JFrame {
         jPanel3.add(SaveData, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 530, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("Status");
-        jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 450, -1, -1));
+        jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 410, 160, -1));
 
         jComboBox2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Belum Kembali", "Sudah Kembali", "Hilang" }));
         jComboBox2.setPreferredSize(new java.awt.Dimension(50, 40));
-        jPanel3.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 490, 160, -1));
+        jPanel3.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 440, 160, -1));
 
         jPanel4.setBackground(new java.awt.Color(254, 235, 237));
         jPanel4.setLayout(new javax.swing.BoxLayout(jPanel4, javax.swing.BoxLayout.LINE_AXIS));
-        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 450, 190, 30));
+        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 440, 190, 30));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
 

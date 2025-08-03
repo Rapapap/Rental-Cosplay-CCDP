@@ -45,8 +45,8 @@ public class HomeView extends javax.swing.JPanel {
             ResultSet rs3 = stmt.executeQuery(
             "SELECT COUNT(*) FROM rental " +
             "WHERE " +
-            "(tgl_kembali != '0000-00-00' AND tgl_kembali > DATE_ADD(tgl_pinjam, INTERVAL durasi_pinjam DAY)) " +
-            "OR (tgl_kembali = '0000-00-00' AND CURDATE() > DATE_ADD(tgl_pinjam, INTERVAL durasi_pinjam DAY))"
+            "(tgl_kembali is not NULL AND tgl_kembali > DATE_ADD(tgl_pinjam, INTERVAL durasi_pinjam DAY)) " +
+            "OR (tgl_kembali is NULL AND CURDATE() > DATE_ADD(tgl_pinjam, INTERVAL durasi_pinjam DAY))"
             );
             if (rs3.next()) {
                 jTelat.setText(String.valueOf(rs3.getInt(1)));

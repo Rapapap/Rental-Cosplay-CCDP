@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package formInformasi;
+package rental.cosplay.view.kostum;
 
 import rental.cosplay.model.KostumModel;
 
@@ -89,10 +89,11 @@ public class DetailKostumFrame extends javax.swing.JFrame {
 
         jScrollPane1.setPreferredSize(new java.awt.Dimension(500, 96));
 
+        TDeskripsiKostum.setEditable(false);
         TDeskripsiKostum.setColumns(20);
+        TDeskripsiKostum.setLineWrap(true);
         TDeskripsiKostum.setRows(5);
         TDeskripsiKostum.setText("Kostum Nobita adalah kostum dari anime doraemon yang memiliki\nbaju warna kuning dan celana berwarna biru, yang dimana kita\nmenyediakan printilan nya yaitu : kacamata, sepatu.");
-        TDeskripsiKostum.setEnabled(false);
         jScrollPane1.setViewportView(TDeskripsiKostum);
 
         jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, 110));
