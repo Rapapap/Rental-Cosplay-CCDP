@@ -15,7 +15,6 @@ public class KostumModel {
         this.deskripsi = deskripsi;
     }
 
-
     public String getId_kostum() {
         return id_kostum;
     }

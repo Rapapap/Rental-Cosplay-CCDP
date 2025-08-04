@@ -109,8 +109,8 @@ public class RentalEditView extends javax.swing.JFrame {
             if (comp instanceof JRadioButton) {
                 JRadioButton radio = (JRadioButton) comp;
                 if (rentalModel.getUkuran().equals(radio.getActionCommand())) {
-                    radio.setSelected(true); // select the matching radio button
-                    break;                   // stop if found
+                    radio.setSelected(true); 
+                    break;                   
                 }
             }
         }
@@ -296,7 +296,7 @@ public class RentalEditView extends javax.swing.JFrame {
         jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 410, 160, -1));
 
         jComboBox2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Belum Kembali", "Sudah Kembali", "Hilang" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Belum Kembali", "Sudah Kembali" }));
         jComboBox2.setPreferredSize(new java.awt.Dimension(50, 40));
         jPanel3.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 440, 160, -1));
 
