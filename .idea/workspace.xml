@@ -4,7 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26ed8a37-40c4-4133-9852-1d5d619d991a" name="Changes" comment="" />
+    <list default="true" id="26ed8a37-40c4-4133-9852-1d5d619d991a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/generate-javadoc.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rental/cosplay/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/rental/cosplay/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rental/cosplay/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/rental/cosplay/DatabaseConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rental/cosplay/NavigationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/rental/cosplay/NavigationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rental/cosplay/UserModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/rental/cosplay/UserModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rental/cosplay/controller/FormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/rental/cosplay/controller/FormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rental/cosplay/controller/KostumController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/rental/cosplay/controller/KostumController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rental/cosplay/controller/RentalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/rental/cosplay/controller/RentalController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rental/cosplay/model/KostumModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/rental/cosplay/model/KostumModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rental/cosplay/model/RentalModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/rental/cosplay/model/RentalModel.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,9 +25,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="35HoxlrOWKt9PgfZeK3RTbJkkk1" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -23,8 +35,10 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Batch.generate-javadoc.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
@@ -33,10 +47,28 @@
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "E:/Tugas Kuliah/Rental-Cosplay-CCDP",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.grazie",
+    "settings.editor.selected.configurable": "kotlinNotebook",
     "to.speed.mode.migration.done": "true"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="generate-javadoc" type="BatchConfigurationType" factoryName="Batch" temporary="true">
+      <module name="Rental-Cosplay-CCDP" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SCRIPT_NAME" value="generate-javadoc.bat" />
+      <option name="PARAMETERS" value="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Batch.generate-javadoc" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
