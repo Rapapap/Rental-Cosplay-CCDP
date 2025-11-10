@@ -458,7 +458,9 @@ public class MainView extends javax.swing.JFrame {
     }//GEN-LAST:event_KostumButtonKeyPressed
 
     /**
-     * @param args the command line arguments
+     * Main method for testing the MainView independently.
+     *
+     * @param args the command line arguments (not used)
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

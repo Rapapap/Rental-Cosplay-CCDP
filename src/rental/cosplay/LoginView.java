@@ -207,7 +207,9 @@ public class LoginView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLoginKeyPressed
 
     /**
-     * @param args the command line arguments
+     * Main method for testing the LoginView independently.
+     *
+     * @param args the command line arguments (not used)
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
