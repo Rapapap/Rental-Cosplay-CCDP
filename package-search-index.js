@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html","k":"18"},{"l":"org.netbeans.lib.awtextra"},{"l":"rental.cosplay"},{"l":"rental.cosplay.components"},{"l":"rental.cosplay.controller"},{"l":"rental.cosplay.model"},{"l":"rental.cosplay.view.kostum"},{"l":"rental.cosplay.view.rental"}];updateSearchResults();
