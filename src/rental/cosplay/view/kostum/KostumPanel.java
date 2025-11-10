@@ -25,6 +25,11 @@ import rental.cosplay.components.RoundedPanel;
 import rental.cosplay.components.ScrollBarCustom;
 import rental.cosplay.components.ShadowPanel;
 /**
+ * Panel katalog kostum yang menampilkan daftar kostum dan fitur pencarian,
+ * refresh, dan tambah data.
+ *
+ * <p>Komponen ini mengatur tampilan daftar kostum dalam sebuah panel scroll,
+ * serta menyediakan interaksi untuk melihat detail dan mengedit data kostum.</p>
  *
  * @author FX517ZC
  */
@@ -36,6 +41,10 @@ public class KostumPanel extends javax.swing.JPanel {
     List<KostumModel> kostumList;
     KostumController kostumController;
     
+    /**
+     * Membuat panel katalog kostum baru dan mempersiapkan event handler serta
+     * memuat data awal dari controller.
+     */
     public KostumPanel() {
         initComponents();
         tambahKostumView = new TambahKostumView();

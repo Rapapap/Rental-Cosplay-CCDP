@@ -21,6 +21,7 @@ import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JList;
 import javax.swing.JScrollPane;
+import javax.swing.Timer;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.event.PopupMenuEvent;
@@ -28,9 +29,6 @@ import javax.swing.event.PopupMenuListener;
 import javax.swing.plaf.basic.BasicComboBoxUI;
 import javax.swing.plaf.basic.BasicComboPopup;
 import javax.swing.plaf.basic.ComboPopup;
-import org.jdesktop.animation.timing.Animator;
-import org.jdesktop.animation.timing.TimingTarget;
-import org.jdesktop.animation.timing.TimingTargetAdapter;
 
 public class ComboBox<E> extends JComboBox<E> {
 
@@ -84,7 +82,8 @@ public class ComboBox<E> extends JComboBox<E> {
 
     private class ComboUI extends BasicComboBoxUI {
 
-        private final Animator animator;
+        // Simple replacement for org.jdesktop.animation.timing.Animator
+        private final SimpleAnimator animator;
         private boolean animateHinText = true;
         private float location;
         private boolean show;
@@ -150,7 +149,8 @@ public class ComboBox<E> extends JComboBox<E> {
                     }
                 }
             });
-            TimingTarget target = new TimingTargetAdapter() {
+
+            SimpleTimingTarget target = new SimpleTimingTargetAdapter() {
                 @Override
                 public void begin() {
                     animateHinText = getSelectedIndex() == -1;
@@ -161,12 +161,10 @@ public class ComboBox<E> extends JComboBox<E> {
                     location = fraction;
                     repaint();
                 }
-
             };
-            animator = new Animator(300, target);
-            animator.setResolution(0);
-            animator.setAcceleration(0.5f);
-            animator.setDeceleration(0.5f);
+            animator = new SimpleAnimator(300, target);
+            animator.setResolution(15);
+            animator.setEasing(SimpleAnimator.EASING_EASE_IN_OUT);
         }
 
         @Override
@@ -289,6 +287,91 @@ public class ComboBox<E> extends JComboBox<E> {
                 g2.setColor(getBackground());
                 g2.fillPolygon(px, py, px.length);
                 g2.dispose();
+            }
+        }
+
+        // --- Simple animation helpers ---
+        private interface SimpleTimingTarget {
+            default void begin() {}
+            void timingEvent(float fraction);
+            default void end() {}
+        }
+
+        private static class SimpleTimingTargetAdapter implements SimpleTimingTarget {
+            @Override
+            public void timingEvent(float fraction) { /* no-op */ }
+        }
+
+        private static class SimpleAnimator {
+            static final int EASING_LINEAR = 0;
+            static final int EASING_EASE_IN_OUT = 1;
+
+            private final int durationMs;
+            private final SimpleTimingTarget target;
+            private Timer timer;
+            private long startTimeMs;
+            private float startFraction = 0f;
+            private boolean running = false;
+            private int resolutionMs = 15; // default ~60 FPS
+            private int easingMode = EASING_LINEAR;
+
+            SimpleAnimator(int durationMs, SimpleTimingTarget target) {
+                this.durationMs = Math.max(1, durationMs);
+                this.target = target;
+            }
+
+            void setResolution(int resolutionMs) {
+                this.resolutionMs = Math.max(1, resolutionMs);
+            }
+
+            void setEasing(int mode) {
+                this.easingMode = mode;
+            }
+
+            void setStartFraction(float f) {
+                this.startFraction = clamp(f);
+            }
+
+            boolean isRunning() { return running; }
+
+            void start() {
+                stop();
+                running = true;
+                target.begin();
+                long now = System.currentTimeMillis();
+                long offset = (long) (clamp(startFraction) * durationMs);
+                startTimeMs = now - offset;
+                timer = new Timer(resolutionMs, e -> {
+                    float raw = (System.currentTimeMillis() - startTimeMs) / (float) durationMs;
+                    float frac = clamp(raw);
+                    frac = applyEasing(frac);
+                    target.timingEvent(frac);
+                    if (raw >= 1f) {
+                        ((Timer) e.getSource()).stop();
+                        running = false;
+                        target.end();
+                    }
+                });
+                timer.setRepeats(true);
+                timer.start();
+            }
+
+            void stop() {
+                if (timer != null) {
+                    timer.stop();
+                    timer = null;
+                }
+                running = false;
+            }
+
+            private static float clamp(float v) { return v < 0f ? 0f : (v > 1f ? 1f : v); }
+
+            private float applyEasing(float t) {
+                if (easingMode == EASING_EASE_IN_OUT) {
+                    // Cosine ease-in-out
+                    return (float) (0.5 * (1 - Math.cos(Math.PI * t)));
+                }
+                return t; // linear
             }
         }
     }

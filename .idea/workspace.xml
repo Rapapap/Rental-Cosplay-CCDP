@@ -5,17 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="26ed8a37-40c4-4133-9852-1d5d619d991a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/generate-javadoc.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/rental/cosplay/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/rental/cosplay/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/rental/cosplay/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/rental/cosplay/DatabaseConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/rental/cosplay/NavigationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/rental/cosplay/NavigationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/rental/cosplay/UserModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/rental/cosplay/UserModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/rental/cosplay/controller/FormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/rental/cosplay/controller/FormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/rental/cosplay/controller/KostumController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/rental/cosplay/controller/KostumController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/rental/cosplay/controller/RentalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/rental/cosplay/controller/RentalController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/rental/cosplay/model/KostumModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/rental/cosplay/model/KostumModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/rental/cosplay/model/RentalModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/rental/cosplay/model/RentalModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/project.properties" beforeDir="false" afterPath="$PROJECT_DIR$/nbproject/project.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rental/cosplay/LoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/rental/cosplay/LoginView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rental/cosplay/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/rental/cosplay/MainView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rental/cosplay/components/ComboBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/rental/cosplay/components/ComboBox.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rental/cosplay/view/kostum/DetailKostumFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/rental/cosplay/view/kostum/DetailKostumFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rental/cosplay/view/kostum/KostumPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/rental/cosplay/view/kostum/KostumPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rental/cosplay/view/rental/RentalEditView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/rental/cosplay/view/rental/RentalEditView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,6 +82,19 @@
       <option name="presentableId" value="Default" />
       <updated>1762776611395</updated>
     </task>
+    <task id="LOCAL-00001" summary="Fix XML encoding in workspace configuration">
+      <option name="closed" value="true" />
+      <created>1762780383981</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1762780383981</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Fix XML encoding in workspace configuration" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix XML encoding in workspace configuration" />
   </component>
 </project>

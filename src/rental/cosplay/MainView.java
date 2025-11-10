@@ -14,6 +14,8 @@ import rental.cosplay.view.kostum.KostumPanel;
 import rental.cosplay.view.rental.RentalDataView;
 
 /**
+ * Frame utama aplikasi yang menangani navigasi antar panel (Home, Kostum,
+ * Rental, dan Logout). Mengelola sidebar dan panel konten dinamis.
  *
  * @author ASUS
  */
@@ -26,6 +28,10 @@ public class MainView extends javax.swing.JFrame {
     Color putih = new Color(254, 239, 244);
     String lokasi = "";
 
+    /**
+     * Menciptakan frame utama dan menginisialisasi komponen sidebar serta
+     * menampilkan HomeView sebagai tampilan awal.
+     */
     public MainView() {
         initComponents();
 
@@ -43,6 +49,10 @@ public class MainView extends javax.swing.JFrame {
 
     }
 
+    /**
+     * Mengembalikan panel konten utama tempat view dinamis akan ditampilkan.
+     * @return panel konten utama
+     */
     public JPanel getContentPanel() {
         return ContentPanel;
     }

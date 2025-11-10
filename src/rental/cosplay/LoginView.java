@@ -17,6 +17,11 @@ import rental.cosplay.components.GradientWarna;
 
 
 /**
+ * Tampilan (frame) untuk proses login user. Menyediakan input username dan
+ * password serta validasi sederhana sebelum membuka MainView.
+ *
+ * <p>Menggunakan komponen custom untuk tampilan modern dan panel gradien
+ * sebagai latar.</p>
  *
  * @author ASUS
  */
@@ -25,6 +30,10 @@ public class LoginView extends javax.swing.JFrame {
     AuthController authController;
     MainView mainView;
     
+    /**
+     * Menciptakan form login baru dan menginisialisasi komponen UI beserta
+     * controller yang dibutuhkan.
+     */
     public LoginView() {
         initComponents();
         authController = new AuthController();
