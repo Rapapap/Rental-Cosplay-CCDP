@@ -3,7 +3,20 @@ package rental.cosplay.components;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Custom JPanel with gradient background.
+ * Creates a vertical gradient from pink to white.
+ *
+ * @author Rental Cosplay Team
+ */
 public class GradientWarna extends JPanel {
+
+    /**
+     * Creates a new GradientWarna panel with default gradient colors.
+     */
+    public GradientWarna() {
+        super();
+    }
 
     @Override
     protected void paintComponent(Graphics g) {

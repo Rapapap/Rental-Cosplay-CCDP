@@ -25,6 +25,8 @@ import rental.cosplay.components.RoundedPanel;
 import rental.cosplay.components.ScrollBarCustom;
 import rental.cosplay.components.ShadowPanel;
 /**
+ * Panel for managing and displaying costume catalog.
+ * Provides functionality for viewing, searching, adding, editing, and deleting costumes.
  *
  * @author FX517ZC
  */
@@ -36,6 +38,10 @@ public class KostumPanel extends javax.swing.JPanel {
     List<KostumModel> kostumList;
     KostumController kostumController;
     
+    /**
+     * Creates new KostumPanel and initializes components.
+     * Sets up the costume controller and loads costume data.
+     */
     public KostumPanel() {
         initComponents();
         tambahKostumView = new TambahKostumView();
@@ -194,6 +200,10 @@ public class KostumPanel extends javax.swing.JPanel {
         }
     }
     
+    /**
+     * Loads all costume data from the database and displays it.
+     * Shows empty state message if no costumes are found.
+     */
     public void loadDataKostum() {
         this.kostumList = kostumController.getAllKostum();
         if (kostumList == null || kostumList.isEmpty()) {

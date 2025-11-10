@@ -14,6 +14,8 @@ import rental.cosplay.view.kostum.KostumPanel;
 import rental.cosplay.view.rental.RentalDataView;
 
 /**
+ * Main application view containing the navigation sidebar and content panel.
+ * Manages navigation between different panels (Home, Kostum, Rental) and user logout.
  *
  * @author ASUS
  */
@@ -26,6 +28,10 @@ public class MainView extends javax.swing.JFrame {
     Color putih = new Color(254, 239, 244);
     String lokasi = "";
 
+    /**
+     * Creates new MainView.
+     * Initializes components, navigation controller, and sets up the home view.
+     */
     public MainView() {
         initComponents();
 
@@ -43,6 +49,11 @@ public class MainView extends javax.swing.JFrame {
 
     }
 
+    /**
+     * Gets the content panel where different views are displayed.
+     *
+     * @return the content panel
+     */
     public JPanel getContentPanel() {
         return ContentPanel;
     }

@@ -17,13 +17,16 @@ import rental.cosplay.controller.RentalController;
 import rental.cosplay.controller.FormController;
 
 /**
+ * Panel for displaying rental data in a table view.
+ * Shows rental records with options to edit and delete.
  *
  * @author Hakim
  */
 public class RentalDataView extends javax.swing.JPanel {
 
     /**
-     * Creates new form RentalDataView
+     * Creates new form RentalDataView.
+     * Initializes components and loads rental data into the table.
      */
     
     DefaultTableModel tabModel;
