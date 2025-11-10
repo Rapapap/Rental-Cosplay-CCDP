@@ -15,11 +15,21 @@ import rental.cosplay.components.CustomTextField;
 import rental.cosplay.components.RoundedPanel;
 import rental.cosplay.components.ShadowPanel;
 
+/**
+ * View for adding new costume entries.
+ * Provides a form for entering costume information including name, price, size, and description.
+ *
+ * @author Rental Cosplay Team
+ */
 public class TambahKostumView extends javax.swing.JFrame {
 
     KostumController kostumController;
     DatabaseConnection dbConnection;
     
+    /**
+     * Creates new TambahKostumView.
+     * Initializes components and sets up the form for adding costumes.
+     */
     public TambahKostumView() {
         initComponents();
         
@@ -281,6 +291,11 @@ public class TambahKostumView extends javax.swing.JFrame {
         jDeskripsi.setText("");
     }
     
+    /**
+     * Main method for testing the TambahKostumView independently.
+     *
+     * @param args the command line arguments (not used)
+     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

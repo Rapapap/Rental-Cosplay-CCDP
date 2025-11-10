@@ -10,6 +10,12 @@ import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.awt.FontMetrics;
 
+/**
+ * Custom text field with rounded corners and hint text.
+ * Displays placeholder text when empty and unfocused.
+ *
+ * @author Rental Cosplay Team
+ */
 public class CustomTextField extends JTextField {
     private int arcWidth;
     private int arcHeight;
@@ -17,6 +23,16 @@ public class CustomTextField extends JTextField {
     private String hint;
     private int hintMarginLeft;
 
+    /**
+     * Creates a new CustomTextField with rounded corners and hint text.
+     *
+     * @param columns the number of columns for the text field
+     * @param arcWidth the horizontal arc width for rounded corners
+     * @param arcHeight the vertical arc height for rounded corners
+     * @param borderColor the color of the border
+     * @param hint the placeholder text to display when empty
+     * @param hintMarginLeft the left margin for the hint text
+     */
     public CustomTextField(int columns, int arcWidth, int arcHeight, Color borderColor, String hint, int hintMarginLeft) {
         super(columns);
         this.arcWidth = arcWidth;

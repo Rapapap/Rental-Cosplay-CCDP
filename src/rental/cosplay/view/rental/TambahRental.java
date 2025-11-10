@@ -29,6 +29,8 @@ import rental.cosplay.model.KostumModel;
 import rental.cosplay.components.ShadowPanel;
 
 /**
+ * Panel for adding new rental records.
+ * Allows input of customer information, costume selection, and rental duration.
  *
  * @author LENOVO LOOQ
  */
@@ -41,13 +43,17 @@ public final class TambahRental extends javax.swing.JPanel {
     private javax.swing.JComboBox<KostumModel> comboKostumManual; // ini ngerubah dropdown nya 
 
     /**
-     * Creates new form FormInformasiView
+     * Creates new form FormInformasiView.
+     * Initializes components and loads costume data.
      */
     public TambahRental() {
         initComponents();
         tampilDataKostum();
     }
     
+    /**
+     * Loads costume data from database and populates the costume dropdown.
+     */
     public void tampilDataKostum(){
         listKostum = kostumController.getAllKostum(); // ngambil semua data dari database kostum
         
@@ -57,6 +63,10 @@ public final class TambahRental extends javax.swing.JPanel {
         }
     }
     
+    /**
+     * Resets all form fields to their default values.
+     * Clears text inputs and resets dropdowns to first item.
+     */
     public void reset(){
         jTextFieldNama.setText("");
         jTextFieldNomor.setText("");

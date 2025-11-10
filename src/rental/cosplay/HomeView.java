@@ -13,13 +13,16 @@ import java.sql.Statement;
 import rental.cosplay.components.ShadowPanel;
 
 /**
+ * Home view panel displaying dashboard statistics.
+ * Shows counts of total costumes, rentals, and overdue rentals.
  *
  * @author ASUS
  */
 public class HomeView extends javax.swing.JPanel {
 
     /**
-     * Creates new form Home
+     * Creates new form Home.
+     * Initializes components and displays costume statistics.
      */
     public HomeView() {
         initComponents();

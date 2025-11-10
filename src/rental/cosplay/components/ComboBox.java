@@ -32,20 +32,47 @@ import org.jdesktop.animation.timing.Animator;
 import org.jdesktop.animation.timing.TimingTarget;
 import org.jdesktop.animation.timing.TimingTargetAdapter;
 
+/**
+ * Custom combo box with animated label and custom styling.
+ * Provides a labeled dropdown with animation effects and custom rendering.
+ *
+ * @param <E> the type of elements in this combo box
+ * @author Rental Cosplay Team
+ */
 public class ComboBox<E> extends JComboBox<E> {
 
+    /**
+     * Gets the label text for this combo box.
+     *
+     * @return the label text
+     */
     public String getLabeText() {
         return labeText;
     }
 
+    /**
+     * Sets the label text for this combo box.
+     *
+     * @param labeText the label text to set
+     */
     public void setLabeText(String labeText) {
         this.labeText = labeText;
     }
 
+    /**
+     * Gets the line color of the combo box.
+     *
+     * @return the line color
+     */
     public Color getLineColor() {
         return lineColor;
     }
 
+    /**
+     * Sets the line color of the combo box.
+     *
+     * @param lineColor the line color to set
+     */
     public void setLineColor(Color lineColor) {
         this.lineColor = lineColor;
     }
@@ -75,6 +102,11 @@ public class ComboBox<E> extends JComboBox<E> {
         });
     }
     
+    /**
+     * Creates a new ComboBox with the specified label text.
+     *
+     * @param labelText the label text to display
+     */
     public ComboBox(String labelText) {
         this.labeText = labelText;
         setBackground(Color.WHITE);

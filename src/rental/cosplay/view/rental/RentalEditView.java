@@ -21,6 +21,8 @@ import rental.cosplay.controller.KostumController;
 import rental.cosplay.model.KostumModel;
 
 /**
+ * View for editing rental records.
+ * Allows modification of rental information including customer details, costume selection, and rental dates.
  *
  * @author LENOVO LOOQ
  */
@@ -37,7 +39,9 @@ public class RentalEditView extends javax.swing.JFrame {
     private javax.swing.JComboBox<KostumModel> comboKostumManual; // ini ngerubah dropdown nya 
 
     /**
-     * Creates new form FormEditView
+     * Creates new form FormEditView.
+     *
+     * @param idRental the ID of the rental record to edit
      */
     public RentalEditView(String idRental) {
         initComponents();
@@ -353,9 +357,9 @@ public class RentalEditView extends javax.swing.JFrame {
         jPanel4.repaint();
     }//GEN-LAST:event_jComboBoxKostumActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+//    /**
+//     * @param args the command line arguments
+//     */
 //    public static void main(String args[]) {
 //        /* Set the Nimbus look and feel */
 //        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

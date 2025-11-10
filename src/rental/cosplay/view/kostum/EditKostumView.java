@@ -17,12 +17,23 @@ import rental.cosplay.components.ShadowPanel;
 
 
 
+/**
+ * View for editing costume information.
+ * Allows modification of costume details including name, price, size, and description.
+ *
+ * @author Rental Cosplay Team
+ */
 public class EditKostumView extends javax.swing.JFrame {
 
     KostumController kostumController;
     DatabaseConnection dbConnection;
     KostumModel kostumModel;
     
+    /**
+     * Creates new EditKostumView for editing a specific costume.
+     *
+     * @param kostumModel the costume model to edit
+     */
     public EditKostumView(KostumModel kostumModel) {
         initComponents();
         

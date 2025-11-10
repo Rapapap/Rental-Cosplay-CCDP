@@ -17,6 +17,8 @@ import rental.cosplay.components.GradientWarna;
 
 
 /**
+ * Login view for user authentication.
+ * Provides username and password fields for user login.
  *
  * @author ASUS
  */
@@ -25,6 +27,10 @@ public class LoginView extends javax.swing.JFrame {
     AuthController authController;
     MainView mainView;
     
+    /**
+     * Creates new LoginView.
+     * Initializes components and sets up gradient background with authentication controller.
+     */
     public LoginView() {
         initComponents();
         authController = new AuthController();
@@ -201,7 +207,9 @@ public class LoginView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLoginKeyPressed
 
     /**
-     * @param args the command line arguments
+     * Main method for testing the LoginView independently.
+     *
+     * @param args the command line arguments (not used)
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

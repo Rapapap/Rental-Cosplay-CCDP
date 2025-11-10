@@ -7,11 +7,23 @@ import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import javax.swing.JPanel;
 
+/**
+ * Custom JPanel with shadow and rounded border.
+ * Provides a panel with configurable shadow size and color.
+ *
+ * @author Rental Cosplay Team
+ */
 public class ShadowPanel extends JPanel {
     private int shadowSize;
     private Color shadowColor;
     private Color borderColor = new Color(0xDFDFDF); // Border color #DFDFDF
 
+    /**
+     * Creates a new ShadowPanel with specified shadow properties.
+     *
+     * @param shadowSize the size of the shadow in pixels
+     * @param shadowColor the color of the shadow
+     */
     public ShadowPanel(int shadowSize, Color shadowColor) {
         this.shadowSize = shadowSize;
         this.shadowColor = shadowColor;

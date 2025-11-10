@@ -7,10 +7,22 @@ import java.awt.Color;
 import java.awt.RenderingHints;
 import java.awt.geom.RoundRectangle2D;
 
+/**
+ * Custom JPanel with rounded corners.
+ * Provides a panel with configurable corner radius and background color.
+ *
+ * @author Rental Cosplay Team
+ */
 public class RoundedPanel extends JPanel {
     private int radius;
     private Color backgroundColor;
 
+    /**
+     * Creates a new RoundedPanel with specified corner radius and background color.
+     *
+     * @param radius the corner radius in pixels
+     * @param color the background color
+     */
     public RoundedPanel(int radius, Color color) {
         this.radius = radius;
         this.backgroundColor = color;

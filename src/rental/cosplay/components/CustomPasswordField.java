@@ -10,6 +10,12 @@ import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.awt.FontMetrics;
 
+/**
+ * Custom password field with rounded corners and hint text.
+ * Displays placeholder text when empty and unfocused.
+ *
+ * @author Rental Cosplay Team
+ */
 public class CustomPasswordField extends JPasswordField {
     private int arcWidth;
     private int arcHeight;
@@ -17,6 +23,16 @@ public class CustomPasswordField extends JPasswordField {
     private String hint;
     private int hintMarginLeft; // Margin kiri untuk hint text
 
+    /**
+     * Creates a new CustomPasswordField with rounded corners and hint text.
+     *
+     * @param columns the number of columns for the password field
+     * @param arcWidth the horizontal arc width for rounded corners
+     * @param arcHeight the vertical arc height for rounded corners
+     * @param borderColor the color of the border
+     * @param hint the placeholder text to display when empty
+     * @param hintMarginLeft the left margin for the hint text
+     */
     public CustomPasswordField(int columns, int arcWidth, int arcHeight, Color borderColor, String hint, int hintMarginLeft) {
         super(columns);
         this.arcWidth = arcWidth;

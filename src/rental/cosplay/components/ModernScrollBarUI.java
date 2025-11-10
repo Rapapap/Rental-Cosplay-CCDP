@@ -12,9 +12,22 @@ import javax.swing.JComponent;
 import javax.swing.JScrollBar;
 import javax.swing.plaf.basic.BasicScrollBarUI;
 
+/**
+ * Modern UI implementation for scrollbars.
+ * Provides customized rendering of scrollbar track and thumb with rounded corners.
+ *
+ * @author Rental Cosplay Team
+ */
 public class ModernScrollBarUI extends BasicScrollBarUI {
 
     private final int THUMB_SIZE = 40;
+
+    /**
+     * Creates a new ModernScrollBarUI with default styling.
+     */
+    public ModernScrollBarUI() {
+        super();
+    }
 
     @Override
     protected Dimension getMaximumThumbSize() {
